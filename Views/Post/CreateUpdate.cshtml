@@ -7,6 +7,7 @@
         <div class="col-md-10">
 
             <form asp-action="CreateUpdate" method="post" enctype="multipart/form-data" class="container mt-4">
+                <div class="text-danger"  asp-validation-summary="All"></div>
                 <h2 class="mb-4">@(Model.Post.Id == 0 ? "Create New " : "Update") Product</h2>
                 <div class="mb-3">
                     <label asp-for="Post.Title" class="form-label"></label>
@@ -39,6 +40,7 @@
                 <div class="mb-3">
                     <label asp-for="FeatureImage" class="form-label">Feature Image</label>
                     <input asp-for="FeatureImage" type="file" class="form-control" />
+                    <span asp-validation-for="Post.FeatureImagePath" class="text-danger"></span>
                 </div>
 
                 <button type="submit" class="btn btn-primary">
