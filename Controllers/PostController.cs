@@ -61,8 +61,17 @@ public class PostController : Controller
         {
             string wwwRootPath = _WebHostEnvironment.WebRootPath;
             // Handle image upload ONLY if a new file was provided
+            var allowedExt = new[] { ".jpg", ".jpeg", ".png", ".webp",".jfif" };
+
+            //validate image.
             if (postVM.FeatureImage != null)
             {
+                string extension = Path.GetExtension(postVM.FeatureImage.FileName).ToLower();
+                if (!allowedExt.Contains(extension))
+                {
+                    ModelState.AddModelError("FeatureImage", "Only jpg, jpeg, png, webp allowed");
+                    return View(postVM);
+                }
 
                 string folderPath = Path.Combine(wwwRootPath, "images");
 
@@ -78,37 +87,42 @@ public class PostController : Controller
                 }
 
                 // Save new image
-                string fileName = Guid.NewGuid().ToString() + Path.GetExtension(postVM.FeatureImage.FileName);
-                string filePath = Path.Combine(folderPath, fileName);
+              
+           
+                    string fileName = Guid.NewGuid().ToString() + extension;
 
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                    string filePath = Path.Combine(folderPath, fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await postVM.FeatureImage.CopyToAsync(stream);
+                    }
+
+                    postVM.Post.FeatureImagePath = "/images/" + fileName;
+                
+                // If no new image uploaded → keep the existing FeatureImagePath (do nothing)
+
+                if (id == 0 || id == null)
                 {
-                    await postVM.FeatureImage.CopyToAsync(stream);
+                    // Create new
+                    await _IPost.AddPost(postVM.Post);
                 }
-
-                postVM.Post.FeatureImagePath = "/images/" + fileName;
-            }
-            // If no new image uploaded → keep the existing FeatureImagePath (do nothing)
-
-            if (id == 0 || id == null)
-            {
-                // Create new
-                await _IPost.AddPost(postVM.Post);
-            }
-            else
-            {
-                var existingPost = await _IPost.GetPost(u => u.Id == id);
-                if (existingPost != null)
+                else
                 {
-                    existingPost.Title = postVM.Post.Title;
-                    existingPost.Author = postVM.Post.Author;
-                    existingPost.Content = postVM.Post.Content;
-                    existingPost.CategoryId = postVM.Post.CategoryId;
-                    existingPost.FeatureImagePath = postVM.Post.FeatureImagePath;
+                    var existingPost = await _IPost.GetPost(u => u.Id == id);
+                    if (existingPost != null)
+                    {
+                        existingPost.Title = postVM.Post.Title;
+                        existingPost.Author = postVM.Post.Author;
+                        existingPost.Content = postVM.Post.Content;
+                        existingPost.CategoryId = postVM.Post.CategoryId;
+                        existingPost.FeatureImagePath = postVM.Post.FeatureImagePath;
+                    }
+                    // Update existing
+                    await _IPost.UpdatePost(existingPost);
                 }
-                // Update existing
-                await _IPost.UpdatePost(existingPost);
             }
+               
 
             return RedirectToAction(nameof(Index));
         }
