@@ -25,15 +25,20 @@ namespace BlogWebsite.Repositary.PostRepositary
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Post>> GetAllPosts()
+        public async Task<IEnumerable<Post>> GetAllPosts(Expression<Func<Post, bool>>? filter = null)
         {
-            return await _context.Posts
+            var query =   _context.Posts
                     .Include(p => p.Comments)
-                    .Include(p => p.Category)
-                    .ToListAsync();
+                    .Include(p => p.Category).Where(filter)
+                    .AsQueryable();
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+            return await query.ToListAsync();  
         }
 
-        public async Task<Post?> GetPost(Expression<Func<Post, bool>>? filter)
+        public async Task<Post?> GetPost(Expression<Func<Post, bool>>? filter = null)
         {
 
             return await _context.Posts.Where(filter).FirstOrDefaultAsync();
