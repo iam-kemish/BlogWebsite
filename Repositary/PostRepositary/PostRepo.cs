@@ -29,7 +29,7 @@ namespace BlogWebsite.Repositary.PostRepositary
         {
             var query =   _context.Posts
                     .Include(p => p.Comments)
-                    .Include(p => p.Category).Where(filter)
+                    .Include(p => p.Category)
                     .AsQueryable();
             if (filter != null)
             {
