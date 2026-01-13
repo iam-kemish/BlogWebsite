@@ -1,4 +1,5 @@
-﻿using BlogWebsite.Database;
+﻿using System.Linq.Expressions;
+using BlogWebsite.Database;
 using BlogWebsite.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,46 +12,17 @@ namespace BlogWebsite.Repositary.CategoryRepositary
         {
             _Db = appDbContext;
         }
-        public async Task AddAsync(Category Category)
-        {
-            _Db.Categories.Add(Category);
-            await _Db.SaveChangesAsync();
-        }
 
-        public async Task DeleteAsync(int id)
+        public async Task<IEnumerable<Category>> GetAllCategories(Expression<Func<Category, bool>>? filter = null)
         {
-            var category = await _Db.Categories.FirstOrDefaultAsync(u => u.Id == id);
-            if (category != null)
+            var query = _Db.Categories.AsQueryable();
+            if(filter != null)
             {
-                _Db.Categories.Remove(category);
-                await _Db.SaveChangesAsync();
+                query = query.Where(filter);
+
             }
+            return await query.ToListAsync();
         }
 
-        public async Task<IEnumerable<Category>> GetAllAsync()
-        {
-            return await _Db.Categories
-                .Include(p => p.Posts)
-                .ToListAsync();
-        }
-
-        public async Task<Category?> GetByIdAsync(int id)
-        {
-            var post = await _Db.Categories.Include(p => p.Posts).FirstOrDefaultAsync(p => p.Id == id);
-            return post;
-        }
-
-        public async Task UpdateAsync(Category Category)
-        {
-            var existingCategory = await _Db.Categories.FirstOrDefaultAsync(u => u.Id == Category.Id);
-            if (existingCategory == null)
-            {
-                return;
-            }
-            existingCategory.Description = Category.Description;
-            existingCategory.Name = Category.Name;
-            await _Db.SaveChangesAsync();
-
-        }
     }
 }

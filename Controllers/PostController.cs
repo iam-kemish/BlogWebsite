@@ -29,7 +29,7 @@ public class PostController : Controller
     public async Task<IActionResult> CreateUpdate(int? id)
     {
 
-        var categoryList = await _ICategory.GetAllAsync();
+        var categoryList = await _ICategory.GetAllCategories();
         var categorySelect = categoryList.Select(c => new SelectListItem
         {
             Text = c.Name,
@@ -79,7 +79,7 @@ public class PostController : Controller
                     Directory.CreateDirectory(folderPath);
 
                 // Delete old image if exists
-                if (!string.IsNullOrEmpty(postVM.Post.FeatureImagePath))
+                if (!string.IsNullOrEmpty(postVM.Post?.FeatureImagePath))
                 {
                     var oldPath = Path.Combine(wwwRootPath, postVM.Post.FeatureImagePath.TrimStart('/'));
                     if (System.IO.File.Exists(oldPath))
@@ -128,7 +128,7 @@ public class PostController : Controller
         }
 
         // If model invalid, reload categories
-        var categoryList = await _ICategory.GetAllAsync();
+        var categoryList = await _ICategory.GetAllCategories();
         postVM.Categories = categoryList.Select(c => new SelectListItem
         {
             Text = c.Name,
