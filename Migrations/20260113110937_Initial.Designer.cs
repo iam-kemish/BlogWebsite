@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogWebsite.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260107083740_Initial")]
+    [Migration("20260113110937_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -445,6 +445,186 @@ namespace BlogWebsite.Migrations
                             Content = "Laugh out loud with these stand-ups.",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Comedy Specials 2025"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Author = "CloudGuy",
+                            CategoryId = 1,
+                            Content = "Intro to cloud services and providers.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Cloud Computing Basics"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Author = "DevOpsNinja",
+                            CategoryId = 1,
+                            Content = "CI/CD and automation explained simply.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "DevOps for Beginners"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Author = "BlockSmith",
+                            CategoryId = 1,
+                            Content = "Real world blockchain use cases.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Blockchain Beyond Crypto"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Author = "FutureCoder",
+                            CategoryId = 1,
+                            Content = "How coding will change in next decade.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Future of Programming"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Author = "HealthGeek",
+                            CategoryId = 2,
+                            Content = "Which workout is better?",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Cardio vs Strength Training"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Author = "DrWell",
+                            CategoryId = 2,
+                            Content = "Daily habits for strong immunity.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Boost Your Immunity"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Author = "OfficeFit",
+                            CategoryId = 2,
+                            Content = "Stay healthy with office work.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Desk Job Health Tips"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Author = "ZenCoach",
+                            CategoryId = 2,
+                            Content = "Simple breathing for calm mind.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Breathing Exercises"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Author = "BudgetNomad",
+                            CategoryId = 3,
+                            Content = "Travel more by spending less.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Budget Travel Tips"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Author = "PackSmart",
+                            CategoryId = 3,
+                            Content = "Never forget essentials again.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Travel Packing Checklist"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Author = "AppTraveler",
+                            CategoryId = 3,
+                            Content = "Apps every traveler should use.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Best Travel Apps"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Author = "CultureGuide",
+                            CategoryId = 3,
+                            Content = "Respect local cultures while traveling.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Cultural Travel Etiquette"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Author = "LifeCoach",
+                            CategoryId = 4,
+                            Content = "Start your day right.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Morning Routines of Success"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Author = "CalmMind",
+                            CategoryId = 4,
+                            Content = "Reduce screen time stress.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Digital Detox"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            Author = "BalancePro",
+                            CategoryId = 4,
+                            Content = "Balance career and personal life.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Work Life Balance"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            Author = "MindTrainer",
+                            CategoryId = 4,
+                            Content = "Train your mind for consistency.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Self Discipline Hacks"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            Author = "StreamCritic",
+                            CategoryId = 5,
+                            Content = "Which streaming service is best?",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "OTT Platforms Compared"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Author = "OtakuSensei",
+                            CategoryId = 5,
+                            Content = "Top anime recommendations.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Anime to Watch 2025"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Author = "FilmInsider",
+                            CategoryId = 5,
+                            Content = "How movies are really made.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Behind the Scenes Movies"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            Author = "SoundWave",
+                            CategoryId = 5,
+                            Content = "Understand different music styles.",
+                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Music Genres Explained"
                         });
                 });
 

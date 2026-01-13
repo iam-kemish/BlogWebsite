@@ -119,7 +119,27 @@ namespace BlogWebsite.Migrations
                     { 27, "MusicLover", 5, "Fresh tracks to add to your playlist.", null, new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified), "New Music Releases" },
                     { 28, "Bookworm", 5, "Page-turners for every mood.", null, new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified), "Book Recommendations" },
                     { 29, "SeriesFan", 5, "Addictive shows worth your time.", null, new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified), "TV Series to Binge" },
-                    { 30, "FunnyGuy", 5, "Laugh out loud with these stand-ups.", null, new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified), "Comedy Specials 2025" }
+                    { 30, "FunnyGuy", 5, "Laugh out loud with these stand-ups.", null, new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified), "Comedy Specials 2025" },
+                    { 31, "CloudGuy", 1, "Intro to cloud services and providers.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Cloud Computing Basics" },
+                    { 32, "DevOpsNinja", 1, "CI/CD and automation explained simply.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "DevOps for Beginners" },
+                    { 33, "BlockSmith", 1, "Real world blockchain use cases.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Blockchain Beyond Crypto" },
+                    { 34, "FutureCoder", 1, "How coding will change in next decade.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Future of Programming" },
+                    { 35, "HealthGeek", 2, "Which workout is better?", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Cardio vs Strength Training" },
+                    { 36, "DrWell", 2, "Daily habits for strong immunity.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Boost Your Immunity" },
+                    { 37, "OfficeFit", 2, "Stay healthy with office work.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Desk Job Health Tips" },
+                    { 38, "ZenCoach", 2, "Simple breathing for calm mind.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Breathing Exercises" },
+                    { 39, "BudgetNomad", 3, "Travel more by spending less.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Budget Travel Tips" },
+                    { 40, "PackSmart", 3, "Never forget essentials again.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Travel Packing Checklist" },
+                    { 41, "AppTraveler", 3, "Apps every traveler should use.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Best Travel Apps" },
+                    { 42, "CultureGuide", 3, "Respect local cultures while traveling.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Cultural Travel Etiquette" },
+                    { 43, "LifeCoach", 4, "Start your day right.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Morning Routines of Success" },
+                    { 44, "CalmMind", 4, "Reduce screen time stress.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Digital Detox" },
+                    { 45, "BalancePro", 4, "Balance career and personal life.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Work Life Balance" },
+                    { 46, "MindTrainer", 4, "Train your mind for consistency.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Self Discipline Hacks" },
+                    { 47, "StreamCritic", 5, "Which streaming service is best?", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "OTT Platforms Compared" },
+                    { 48, "OtakuSensei", 5, "Top anime recommendations.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Anime to Watch 2025" },
+                    { 49, "FilmInsider", 5, "How movies are really made.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Behind the Scenes Movies" },
+                    { 50, "SoundWave", 5, "Understand different music styles.", null, new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), "Music Genres Explained" }
                 });
 
             migrationBuilder.InsertData(

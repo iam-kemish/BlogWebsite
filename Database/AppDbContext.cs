@@ -63,7 +63,38 @@ namespace BlogWebsite.Database
          new Post { Id = 27, Title = "New Music Releases", Content = "Fresh tracks to add to your playlist.", Author = "MusicLover", PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0), CategoryId = 5 },
          new Post { Id = 28, Title = "Book Recommendations", Content = "Page-turners for every mood.", Author = "Bookworm", PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0), CategoryId = 5 },
          new Post { Id = 29, Title = "TV Series to Binge", Content = "Addictive shows worth your time.", Author = "SeriesFan", PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0), CategoryId = 5 },
-         new Post { Id = 30, Title = "Comedy Specials 2025", Content = "Laugh out loud with these stand-ups.", Author = "FunnyGuy", PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0), CategoryId = 5 }
+       new Post { Id = 30, Title = "Comedy Specials 2025", Content = "Laugh out loud with these stand-ups.", Author = "FunnyGuy", PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0), CategoryId = 5 },
+
+       // Category 1: Tech (add 4 more)
+new Post { Id = 31, Title = "Cloud Computing Basics", Content = "Intro to cloud services and providers.", Author = "CloudGuy", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 1 },
+new Post { Id = 32, Title = "DevOps for Beginners", Content = "CI/CD and automation explained simply.", Author = "DevOpsNinja", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 1 },
+new Post { Id = 33, Title = "Blockchain Beyond Crypto", Content = "Real world blockchain use cases.", Author = "BlockSmith", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 1 },
+new Post { Id = 34, Title = "Future of Programming", Content = "How coding will change in next decade.", Author = "FutureCoder", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 1 },
+
+// Category 2: Health (add 4 more)
+new Post { Id = 35, Title = "Cardio vs Strength Training", Content = "Which workout is better?", Author = "HealthGeek", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 2 },
+new Post { Id = 36, Title = "Boost Your Immunity", Content = "Daily habits for strong immunity.", Author = "DrWell", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 2 },
+new Post { Id = 37, Title = "Desk Job Health Tips", Content = "Stay healthy with office work.", Author = "OfficeFit", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 2 },
+new Post { Id = 38, Title = "Breathing Exercises", Content = "Simple breathing for calm mind.", Author = "ZenCoach", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 2 },
+
+// Category 3: Travel (add 4 more)
+new Post { Id = 39, Title = "Budget Travel Tips", Content = "Travel more by spending less.", Author = "BudgetNomad", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 3 },
+new Post { Id = 40, Title = "Travel Packing Checklist", Content = "Never forget essentials again.", Author = "PackSmart", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 3 },
+new Post { Id = 41, Title = "Best Travel Apps", Content = "Apps every traveler should use.", Author = "AppTraveler", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 3 },
+new Post { Id = 42, Title = "Cultural Travel Etiquette", Content = "Respect local cultures while traveling.", Author = "CultureGuide", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 3 },
+
+// Category 4: Lifestyle (add 4 more)
+new Post { Id = 43, Title = "Morning Routines of Success", Content = "Start your day right.", Author = "LifeCoach", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 4 },
+new Post { Id = 44, Title = "Digital Detox", Content = "Reduce screen time stress.", Author = "CalmMind", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 4 },
+new Post { Id = 45, Title = "Work Life Balance", Content = "Balance career and personal life.", Author = "BalancePro", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 4 },
+new Post { Id = 46, Title = "Self Discipline Hacks", Content = "Train your mind for consistency.", Author = "MindTrainer", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 4 },
+
+// Category 5: Entertainment (add 4 more)
+new Post { Id = 47, Title = "OTT Platforms Compared", Content = "Which streaming service is best?", Author = "StreamCritic", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 5 },
+new Post { Id = 48, Title = "Anime to Watch 2025", Content = "Top anime recommendations.", Author = "OtakuSensei", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 5 },
+new Post { Id = 49, Title = "Behind the Scenes Movies", Content = "How movies are really made.", Author = "FilmInsider", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 5 },
+new Post { Id = 50, Title = "Music Genres Explained", Content = "Understand different music styles.", Author = "SoundWave", PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0), CategoryId = 5 }
+
      );
             modelBuilder.Entity<Comment>().HasData(
                  new Comment
