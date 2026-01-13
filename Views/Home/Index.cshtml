@@ -9,7 +9,57 @@
         {
         @foreach (var item in Model.Categories)
         {
-            <a asp-controller="Post" asp-action="Index" asp-route-categoryId="@item.Id" class="badge bg-warning">@item.Name</a>
+            <a asp-controller="Home" asp-action="Index" asp-route-categoryId="@item.Id" class="badge bg-warning">@item.Name</a>
         }
  }
+</div>
+<div class="row pb-3">
+    @foreach (var item in Model?.Posts)
+    {
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-5">
+            <!-- Adjusted column size for larger cards -->
+            <div class="row p-2">
+                <div class="col-12 p-1">
+                    <div class="card border-0 p-3 shadow border-top border-5 rounded">
+                        <!-- Bike Image -->
+                        <img src="@item.FeatureImagePath"
+                             class="card-img-top rounded large-img"
+                             alt="Bike Image" />
+
+                        <!-- Card Body -->
+                        <div class="card-body pb-0">
+                            <div class="pl-1 text-center">
+                                <h5 class="card-title text-uppercase text-dark opacity-75 mb-2">
+                                    @item.Title
+                                </h5>
+                                <p class="text-warning mb-2">
+                                    <b>Title:</b> @item.Title
+                                </p>
+                                <p class="text-secondary mb-2">
+                                    <b>Content:</b> @item.Content
+                                </p>
+                                <p class="text-secondary mb-2">
+                                    <b>Author:</b> @item.Author
+                                </p>
+                                <p class="text-secondary mb-2">
+                                    <b>Category:</b> @item.Category?.Name
+                                </p>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Details Button -->
+                        <div class="mt-3">
+                            <a asp-action="Details"
+                               asp-route-itemId="@item.Id"
+                               asp-controller="Home"
+                               class="btn btn-primary bg-gradient border-0 form-control">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 </div>
