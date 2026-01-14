@@ -31,7 +31,7 @@ namespace BlogWebsite.Database
          new Post { Id = 3, Title = "Best Laptops for Developers", Content = "Top picks for coding and development in 2025.", Author = "CodeMaster", PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0), CategoryId = 1 },
          new Post { Id = 4, Title = "Quantum Computing Explained", Content = "A beginner's guide to quantum computing.", Author = "QuantumGuru", PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0), CategoryId = 1 },
          new Post { Id = 5, Title = "5G vs 6G: What's Next?", Content = "The evolution of mobile networks.", Author = "NetWizard", PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0), CategoryId = 1 },
-         new Post { Id = 6, Title = "Cybersecurity Tips 2025", Content = "Protect yourself in the digital age.", Author = "SecureOne", PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0), CategoryId = 1 },
+         new Post { Id = 6, Title = "Cybersecurity Tips 2025", Content = "Protect yourself in the digital age.", Author = "SecureOne", PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0), CategoryId = 1, ImageUrl= "/images/Posts/Cybersecurity Tips 2025.jfif" },
 
          // Category 2: Health (6 posts)
          new Post { Id = 7, Title = "Healthy Eating Tips", Content = "Learn how to eat healthy and maintain your lifestyle.", Author = "Ramsay", PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0), CategoryId = 2 },
