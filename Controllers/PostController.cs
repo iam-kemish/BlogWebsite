@@ -16,12 +16,15 @@ public class PostController : Controller
         _ICategory = category;
         _WebHostEnvironment = webHostEnvironment;
     }
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int PageNumber=1)
     {
-         PostVM postVM= new()
+        int pageSize = 10;
+        var result = await _IPost.GetPagedPosts(filter:null, pageSize, PageNumber);
+        PostVM postVM = new()
         {
-            Posts = await _IPost.GetAllPosts(),
-
+            Posts = result.Item1,
+            CurrentPage= PageNumber,
+            TotalPages = (int)Math.Ceiling(result.TotalCount / (double)pageSize)
         };
         return View(postVM);
     }

@@ -9,5 +9,8 @@ namespace BlogWebsite.Views.Viewmodels
         public IEnumerable<Post>? Posts { get; set; } = new List<Post>();
         public IEnumerable<SelectListItem>? Categories { get; set; }
         public IFormFile? FeatureImage { get; set; }
+
+        public int CurrentPage { get; set; }
+        public int TotalPages { get; set; }
     }
 }
