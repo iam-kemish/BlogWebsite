@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Linq.Expressions;
 using BlogWebsite.Models;
 using BlogWebsite.Repositary.CategoryRepositary;
 using BlogWebsite.Repositary.PostRepositary;
@@ -20,23 +21,23 @@ namespace BlogWebsite.Controllers
             _ICategory = category;
         }
 
-        public async Task<IActionResult> Index(int? categoryId)
+        public async Task<IActionResult> Index(int? categoryId, int PageNumber=1)
         {
-            HomeVM homeVM = new();
-            
-               if (categoryId == null)
-            {
-                homeVM.Posts = await _IPost.GetAllPosts();
-            }
-            else
-            {
-                homeVM.Posts = await _IPost.GetAllPosts(u => u.CategoryId == categoryId);
-            }
 
-            homeVM.Categories = await _ICategory.GetAllCategories();
-
+           
+            int pageSize = 10;
+            Expression<Func<Post, bool>>? filter = categoryId == null ? null : u => u.CategoryId == categoryId;
+            var result = await _IPost.GetPagedPosts(filter, pageSize, PageNumber);
+            HomeVM homeVM = new()
+            {
+                CategoryId = categoryId,
+                Posts = result.Item1,
+                TotalPages = (int)Math.Ceiling(result.TotalCount / (double)pageSize),
+                Categories = await _ICategory.GetAllCategories(),
+                CurrentPage= PageNumber
+            };
             return View(homeVM);
-    }
+        }
     
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

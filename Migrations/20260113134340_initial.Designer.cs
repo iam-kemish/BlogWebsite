@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogWebsite.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260113110937_Initial")]
-    partial class Initial
+    [Migration("20260113134340_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -161,6 +161,9 @@ namespace BlogWebsite.Migrations
                     b.Property<string>("FeatureImagePath")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("PublishedDate")
                         .HasColumnType("datetime2");
 
@@ -182,6 +185,7 @@ namespace BlogWebsite.Migrations
                             Author = "Theon",
                             CategoryId = 1,
                             Content = "Stay updated with the latest technology trends for 2025.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Latest Tech Trends 2025"
                         },
@@ -191,6 +195,7 @@ namespace BlogWebsite.Migrations
                             Author = "Ada Lovelace",
                             CategoryId = 1,
                             Content = "How artificial intelligence is shaping the future.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "AI Revolution in 2026"
                         },
@@ -200,6 +205,7 @@ namespace BlogWebsite.Migrations
                             Author = "CodeMaster",
                             CategoryId = 1,
                             Content = "Top picks for coding and development in 2025.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Best Laptops for Developers"
                         },
@@ -209,6 +215,7 @@ namespace BlogWebsite.Migrations
                             Author = "QuantumGuru",
                             CategoryId = 1,
                             Content = "A beginner's guide to quantum computing.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Quantum Computing Explained"
                         },
@@ -218,6 +225,7 @@ namespace BlogWebsite.Migrations
                             Author = "NetWizard",
                             CategoryId = 1,
                             Content = "The evolution of mobile networks.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "5G vs 6G: What's Next?"
                         },
@@ -227,6 +235,7 @@ namespace BlogWebsite.Migrations
                             Author = "SecureOne",
                             CategoryId = 1,
                             Content = "Protect yourself in the digital age.",
+                            ImageUrl = "/images/Posts/Cybersecurity Tips 2025.jfif",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Cybersecurity Tips 2025"
                         },
@@ -236,6 +245,7 @@ namespace BlogWebsite.Migrations
                             Author = "Ramsay",
                             CategoryId = 2,
                             Content = "Learn how to eat healthy and maintain your lifestyle.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Healthy Eating Tips"
                         },
@@ -245,6 +255,7 @@ namespace BlogWebsite.Migrations
                             Author = "FitPro",
                             CategoryId = 2,
                             Content = "Start your day with energy and strength.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Morning Workout Routine"
                         },
@@ -254,6 +265,7 @@ namespace BlogWebsite.Migrations
                             Author = "MindfulSoul",
                             CategoryId = 2,
                             Content = "Tips for managing stress and anxiety.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Mental Health Matters"
                         },
@@ -263,6 +275,7 @@ namespace BlogWebsite.Migrations
                             Author = "YogiBear",
                             CategoryId = 2,
                             Content = "Improve flexibility and inner peace.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Benefits of Yoga"
                         },
@@ -272,6 +285,7 @@ namespace BlogWebsite.Migrations
                             Author = "Dreamer",
                             CategoryId = 2,
                             Content = "Science-backed tips for quality sleep.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Sleep Better Tonight"
                         },
@@ -281,6 +295,7 @@ namespace BlogWebsite.Migrations
                             Author = "HydroMan",
                             CategoryId = 2,
                             Content = "Why water is your best friend.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Hydration and Health"
                         },
@@ -290,6 +305,7 @@ namespace BlogWebsite.Migrations
                             Author = "Lockhead",
                             CategoryId = 3,
                             Content = "Check out the most amazing travel destinations this year.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Top Travel Destinations"
                         },
@@ -299,6 +315,7 @@ namespace BlogWebsite.Migrations
                             Author = "EuroNomad",
                             CategoryId = 3,
                             Content = "Budget tips for an epic European adventure.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Backpacking in Europe"
                         },
@@ -308,6 +325,7 @@ namespace BlogWebsite.Migrations
                             Author = "AsiaExplorer",
                             CategoryId = 3,
                             Content = "Off-the-beaten-path locations you must visit.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Hidden Gems in Asia"
                         },
@@ -317,6 +335,7 @@ namespace BlogWebsite.Migrations
                             Author = "SoloWanderer",
                             CategoryId = 3,
                             Content = "How to travel alone confidently.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Solo Travel Safety Tips"
                         },
@@ -326,6 +345,7 @@ namespace BlogWebsite.Migrations
                             Author = "BeachLover",
                             CategoryId = 3,
                             Content = "Paradise beaches around the world.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Best Beaches 2025"
                         },
@@ -335,6 +355,7 @@ namespace BlogWebsite.Migrations
                             Author = "PeakClimber",
                             CategoryId = 3,
                             Content = "Prepare for your next hiking adventure.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Mountain Trekking Guide"
                         },
@@ -344,6 +365,7 @@ namespace BlogWebsite.Migrations
                             Author = "SimpleLife",
                             CategoryId = 4,
                             Content = "Live more with less.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Minimalism in 2025"
                         },
@@ -353,6 +375,7 @@ namespace BlogWebsite.Migrations
                             Author = "TimeMaster",
                             CategoryId = 4,
                             Content = "Get more done in less time.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Productivity Hacks"
                         },
@@ -362,6 +385,7 @@ namespace BlogWebsite.Migrations
                             Author = "InteriorPro",
                             CategoryId = 4,
                             Content = "Transform your space on a budget.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Home Decor Ideas"
                         },
@@ -371,6 +395,7 @@ namespace BlogWebsite.Migrations
                             Author = "StyleIcon",
                             CategoryId = 4,
                             Content = "What to wear this year.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Fashion Trends 2025"
                         },
@@ -380,6 +405,7 @@ namespace BlogWebsite.Migrations
                             Author = "HabitBuilder",
                             CategoryId = 4,
                             Content = "Small changes, big results.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Building Good Habits"
                         },
@@ -389,6 +415,7 @@ namespace BlogWebsite.Migrations
                             Author = "MoneyWise",
                             CategoryId = 4,
                             Content = "Manage money like a pro.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Financial Freedom Tips"
                         },
@@ -398,6 +425,7 @@ namespace BlogWebsite.Migrations
                             Author = "Cinephile",
                             CategoryId = 5,
                             Content = "Must-watch films this year.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Best Movies of 2025"
                         },
@@ -407,6 +435,7 @@ namespace BlogWebsite.Migrations
                             Author = "GamerX",
                             CategoryId = 5,
                             Content = "Games you can't miss.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Top Video Games 2025"
                         },
@@ -416,6 +445,7 @@ namespace BlogWebsite.Migrations
                             Author = "MusicLover",
                             CategoryId = 5,
                             Content = "Fresh tracks to add to your playlist.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "New Music Releases"
                         },
@@ -425,6 +455,7 @@ namespace BlogWebsite.Migrations
                             Author = "Bookworm",
                             CategoryId = 5,
                             Content = "Page-turners for every mood.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Book Recommendations"
                         },
@@ -434,6 +465,7 @@ namespace BlogWebsite.Migrations
                             Author = "SeriesFan",
                             CategoryId = 5,
                             Content = "Addictive shows worth your time.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "TV Series to Binge"
                         },
@@ -443,6 +475,7 @@ namespace BlogWebsite.Migrations
                             Author = "FunnyGuy",
                             CategoryId = 5,
                             Content = "Laugh out loud with these stand-ups.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Comedy Specials 2025"
                         },
@@ -452,6 +485,7 @@ namespace BlogWebsite.Migrations
                             Author = "CloudGuy",
                             CategoryId = 1,
                             Content = "Intro to cloud services and providers.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Cloud Computing Basics"
                         },
@@ -461,6 +495,7 @@ namespace BlogWebsite.Migrations
                             Author = "DevOpsNinja",
                             CategoryId = 1,
                             Content = "CI/CD and automation explained simply.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "DevOps for Beginners"
                         },
@@ -470,6 +505,7 @@ namespace BlogWebsite.Migrations
                             Author = "BlockSmith",
                             CategoryId = 1,
                             Content = "Real world blockchain use cases.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Blockchain Beyond Crypto"
                         },
@@ -479,6 +515,7 @@ namespace BlogWebsite.Migrations
                             Author = "FutureCoder",
                             CategoryId = 1,
                             Content = "How coding will change in next decade.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Future of Programming"
                         },
@@ -488,6 +525,7 @@ namespace BlogWebsite.Migrations
                             Author = "HealthGeek",
                             CategoryId = 2,
                             Content = "Which workout is better?",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Cardio vs Strength Training"
                         },
@@ -497,6 +535,7 @@ namespace BlogWebsite.Migrations
                             Author = "DrWell",
                             CategoryId = 2,
                             Content = "Daily habits for strong immunity.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Boost Your Immunity"
                         },
@@ -506,6 +545,7 @@ namespace BlogWebsite.Migrations
                             Author = "OfficeFit",
                             CategoryId = 2,
                             Content = "Stay healthy with office work.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Desk Job Health Tips"
                         },
@@ -515,6 +555,7 @@ namespace BlogWebsite.Migrations
                             Author = "ZenCoach",
                             CategoryId = 2,
                             Content = "Simple breathing for calm mind.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Breathing Exercises"
                         },
@@ -524,6 +565,7 @@ namespace BlogWebsite.Migrations
                             Author = "BudgetNomad",
                             CategoryId = 3,
                             Content = "Travel more by spending less.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Budget Travel Tips"
                         },
@@ -533,6 +575,7 @@ namespace BlogWebsite.Migrations
                             Author = "PackSmart",
                             CategoryId = 3,
                             Content = "Never forget essentials again.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Travel Packing Checklist"
                         },
@@ -542,6 +585,7 @@ namespace BlogWebsite.Migrations
                             Author = "AppTraveler",
                             CategoryId = 3,
                             Content = "Apps every traveler should use.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Best Travel Apps"
                         },
@@ -551,6 +595,7 @@ namespace BlogWebsite.Migrations
                             Author = "CultureGuide",
                             CategoryId = 3,
                             Content = "Respect local cultures while traveling.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Cultural Travel Etiquette"
                         },
@@ -560,6 +605,7 @@ namespace BlogWebsite.Migrations
                             Author = "LifeCoach",
                             CategoryId = 4,
                             Content = "Start your day right.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Morning Routines of Success"
                         },
@@ -569,6 +615,7 @@ namespace BlogWebsite.Migrations
                             Author = "CalmMind",
                             CategoryId = 4,
                             Content = "Reduce screen time stress.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Digital Detox"
                         },
@@ -578,6 +625,7 @@ namespace BlogWebsite.Migrations
                             Author = "BalancePro",
                             CategoryId = 4,
                             Content = "Balance career and personal life.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Work Life Balance"
                         },
@@ -587,6 +635,7 @@ namespace BlogWebsite.Migrations
                             Author = "MindTrainer",
                             CategoryId = 4,
                             Content = "Train your mind for consistency.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Self Discipline Hacks"
                         },
@@ -596,6 +645,7 @@ namespace BlogWebsite.Migrations
                             Author = "StreamCritic",
                             CategoryId = 5,
                             Content = "Which streaming service is best?",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "OTT Platforms Compared"
                         },
@@ -605,6 +655,7 @@ namespace BlogWebsite.Migrations
                             Author = "OtakuSensei",
                             CategoryId = 5,
                             Content = "Top anime recommendations.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Anime to Watch 2025"
                         },
@@ -614,6 +665,7 @@ namespace BlogWebsite.Migrations
                             Author = "FilmInsider",
                             CategoryId = 5,
                             Content = "How movies are really made.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Behind the Scenes Movies"
                         },
@@ -623,6 +675,7 @@ namespace BlogWebsite.Migrations
                             Author = "SoundWave",
                             CategoryId = 5,
                             Content = "Understand different music styles.",
+                            ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Music Genres Explained"
                         });

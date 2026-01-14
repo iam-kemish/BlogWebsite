@@ -27,5 +27,8 @@ namespace BlogWebsite.Models
         public Category? Category { get; set; }
 
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();
+
+        public string? ImageUrl { get; set; } = "/images/posts/default.jpg";
+
     }
 }

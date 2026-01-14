@@ -35,7 +35,23 @@ namespace BlogWebsite.Repositary.PostRepositary
             {
                 query = query.Where(filter);
             }
-            return await query.ToListAsync();  
+         return await query.ToListAsync();
+        }
+
+      
+        public async Task<(IEnumerable<Post>, int TotalCount)> GetPagedPosts(Expression<Func<Post, bool>>? filter = null, int pageSize=10, int pageNumber=1)
+        {
+            var query = _context.Posts
+                   .Include(p => p.Comments)
+                   .Include(p => p.Category)
+                   .AsQueryable();
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+            int TotalCount = await query.CountAsync();
+            var posts = await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+            return (posts, TotalCount);
         }
 
         public async Task<Post?> GetPost(Expression<Func<Post, bool>>? filter = null)
