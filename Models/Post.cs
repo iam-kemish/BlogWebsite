@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace BlogWebsite.Models
 {
@@ -12,7 +13,7 @@ namespace BlogWebsite.Models
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Content is required")]
-        [MaxLength(1000, ErrorMessage = "Content cannot exceed 1000 characters.")]
+       
         public string Content { get; set; }
 
         [Required(ErrorMessage = "Author is required")]
@@ -22,6 +23,7 @@ namespace BlogWebsite.Models
         public string? FeatureImagePath { get; set; }
 
         public DateTime PublishedDate { get; set; } = DateTime.Now;
+        [DisplayName("Category")]
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
