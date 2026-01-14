@@ -38,7 +38,15 @@ namespace BlogWebsite.Controllers
             };
             return View(homeVM);
         }
-    
+       public async Task<IActionResult> Details(int PostId)
+        {
+            HomeVM homeVM = new()
+            {
+                post = await _IPost.GetPost(u => u.Id == PostId),
+
+            };
+            return View(homeVM);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
