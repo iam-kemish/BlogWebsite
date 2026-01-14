@@ -152,8 +152,7 @@ namespace BlogWebsite.Migrations
 
                     b.Property<string>("Content")
                         .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FeatureImagePath")
                         .HasColumnType("nvarchar(max)");
@@ -181,7 +180,7 @@ namespace BlogWebsite.Migrations
                             Id = 1,
                             Author = "Theon",
                             CategoryId = 1,
-                            Content = "Stay updated with the latest technology trends for 2025.",
+                            Content = "As we head into late 2025 and look toward 2026, technology continues its rapid evolution, driven primarily by advancements in artificial intelligence, sustainable computing, and connectivity. Agentic AI—systems that autonomously plan, reason, and execute multi-step tasks—has moved from hype to enterprise reality, with Deloitte and Gartner highlighting how organizations are embedding these agents into workflows for everything from customer service to supply chain optimization. Multimodal AI, processing text, images, video, and audio seamlessly, powers more intuitive tools like real-time translation and creative assistants. Edge computing reduces latency for IoT and autonomous systems, while private 5G/6G networks enable secure industrial applications. Sustainability is huge: AI's energy demands push adoption of nuclear-powered data centers and efficient algorithms. Quantum computing edges closer with error-corrected qubits from IBM and Google, promising breakthroughs in drug discovery and optimization. Cybersecurity evolves with AI-driven threat detection amid rising deepfake risks. For developers and businesses, the key is building 'change fitness'—rapid adaptation through hybrid clouds, upskilling, and ethical AI governance. 2025-2026 marks the shift where tech becomes a true strategic partner, not just a tool.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Latest Tech Trends 2025"
@@ -191,7 +190,7 @@ namespace BlogWebsite.Migrations
                             Id = 2,
                             Author = "Ada Lovelace",
                             CategoryId = 1,
-                            Content = "How artificial intelligence is shaping the future.",
+                            Content = "2026 promises the deepest phase of the AI revolution yet. Agentic AI will dominate, acting as autonomous digital colleagues that handle entire workflows—from research and planning to execution and iteration—with minimal oversight. OpenAI, Anthropic, and global players push reasoning models that excel at complex, multi-step problems. Multimodal integration becomes standard, enabling AI to understand and generate across formats like video synthesis or interactive simulations. Trends include AI accelerating scientific discovery (materials science, biology), AI-native security to counter AI threats, and massive infrastructure builds for energy-efficient datacenters. Challenges loom: talent shortages, ethical bias mitigation, potential economic disruption from automation, and regulatory pushback on high-risk systems. Enterprises must invest in governance frameworks and workforce reskilling. By mid-2026, AI won't just augment jobs—it will redefine collaboration, creativity, and problem-solving at scale, creating abundance in knowledge work while demanding new human-AI partnership models.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "AI Revolution in 2026"
@@ -201,7 +200,7 @@ namespace BlogWebsite.Migrations
                             Id = 3,
                             Author = "CodeMaster",
                             CategoryId = 1,
-                            Content = "Top picks for coding and development in 2025.",
+                            Content = "In 2025-2026, developers need machines that handle demanding IDEs, containers, AI/ML workloads, and long compile times without throttling. Top recommendations start with the ASUS ROG Zephyrus G16 or Strix series for their powerful AMD/Intel combos paired with NVIDIA RTX 40-series GPUs—perfect for game dev, CUDA tasks, or heavy rendering. Lenovo ThinkPad X1 Carbon Gen 13 or P-series remain unbeatable for Linux compatibility, exceptional keyboards, durable builds, and 32GB+ RAM configs essential for modern tools like IntelliJ, VS Code with extensions, and Docker. For macOS fans, the latest MacBook Pro M4 Max offers insane battery life and unified memory for seamless Xcode/SwiftUI work. Budget-conscious? Dell XPS 16 or Lenovo Legion deliver solid performance under $1500. Look for at least 32GB RAM, fast NVMe SSDs (2TB+), high-refresh OLED/QHD+ displays, and effective cooling. Prioritize upgradeability where possible and good webcams/mics for remote work. Your laptop should feel like an extension of your brain—fast, reliable, and comfortable for marathon coding sessions.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Best Laptops for Developers"
@@ -211,7 +210,7 @@ namespace BlogWebsite.Migrations
                             Id = 4,
                             Author = "QuantumGuru",
                             CategoryId = 1,
-                            Content = "A beginner's guide to quantum computing.",
+                            Content = "Quantum computing leverages quantum mechanics—superposition (qubits in multiple states at once), entanglement (instant correlations), and interference—to tackle problems exponentially harder for classical computers. Unlike binary bits, qubits enable parallel exploration of vast solution spaces. Key applications: simulating molecular interactions for drug/material design, optimizing logistics/finance portfolios, and breaking certain encryptions via Shor's algorithm (though post-quantum crypto is advancing). Current hardware from IBM (Condor, Heron), Google, and IonQ achieves hundreds of qubits with improving fidelity, but noise/decoherence demands sophisticated error correction. Logical qubits (error-protected groups) are the milestone—2025-2026 sees first useful demonstrations. For beginners: imagine searching a maze by exploring all paths simultaneously. Challenges include cryogenic requirements, scalability, and hybrid quantum-classical algorithms. It's not replacing your laptop; it's accelerating specific high-value problems in science and industry.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Quantum Computing Explained"
@@ -221,7 +220,7 @@ namespace BlogWebsite.Migrations
                             Id = 5,
                             Author = "NetWizard",
                             CategoryId = 1,
-                            Content = "The evolution of mobile networks.",
+                            Content = "5G transformed connectivity with speeds up to 10Gbps, ultra-low latency (<1ms in ideal cases), and support for millions of devices per km²—powering smart cities, autonomous vehicles, AR/VR, and private enterprise networks. In 2025-2026, 5G-Advanced adds AI optimization and energy efficiency. 6G, targeting 2030 commercialization but with trials accelerating, aims for terabit speeds, sub-millisecond latency, and integration of communication, sensing, and AI. Terahertz bands enable massive bandwidth; AI-native networks self-optimize; joint communication-sensing allows radar-like environmental mapping. Applications: holographic telepresence, digital twins at scale, brain-computer interfaces. Challenges: spectrum policy, hardware for high frequencies, power consumption. The bridge is 5G evolving into 6G via non-terrestrial networks (satellites) and intelligent surfaces. For users, 6G could mean seamless immersive worlds and real-time global sync—redefining remote work, entertainment, and healthcare.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "5G vs 6G: What's Next?"
@@ -231,7 +230,7 @@ namespace BlogWebsite.Migrations
                             Id = 6,
                             Author = "SecureOne",
                             CategoryId = 1,
-                            Content = "Protect yourself in the digital age.",
+                            Content = "Cyber threats in 2025-2026 are AI-amplified: automated phishing, deepfake social engineering, ransomware-as-a-service, and supply-chain attacks. Core tips: Use password managers + passkeys/MFA everywhere (biometrics preferred). Update everything—OS, apps, firmware—to close exploits. Phishing awareness: verify URLs/senders, avoid unsolicited attachments/links, use email filters. Employ reputable EDR/antivirus with behavioral analysis. For personal use: VPN on public Wi-Fi, avoid sharing sensitive data, enable auto-lock. Businesses: Adopt zero-trust (verify every access), segment networks, regular backups (immutable/offline), incident response drills. Train on AI threats like voice cloning. Monitor dark web for leaked credentials. Proactive habits beat recovery—cyber hygiene is as essential as brushing teeth in the digital age.",
                             ImageUrl = "/images/Posts/Cybersecurity Tips 2025.jfif",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Cybersecurity Tips 2025"
@@ -241,7 +240,7 @@ namespace BlogWebsite.Migrations
                             Id = 7,
                             Author = "Ramsay",
                             CategoryId = 2,
-                            Content = "Learn how to eat healthy and maintain your lifestyle.",
+                            Content = "Healthy eating in 2025-2026 focuses on personalization, whole foods, and sustainability. Prioritize vegetables/fruits (half your plate), lean proteins (plant/animal), healthy fats (avocados, nuts, olive oil), and complex carbs (quinoa, sweet potatoes). Trends: functional nutrition with adaptogens, gut-supporting fermented foods, and protein-enriched everyday items (even coffee/snacks). Minimize ultra-processed foods, added sugars, and excessive sodium. Meal prep saves time—batch cook grains/proteins, chop veggies ahead. Hydration: 3-4L water daily, infused for flavor. Mindful eating: chew slowly, no screens, listen to hunger cues. Apps track macros/micros for tailored plans. Balance indulgence—80/20 rule works. Consult RDs for conditions like diabetes or allergies. Consistent small changes compound into lifelong vitality.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Healthy Eating Tips"
@@ -251,7 +250,7 @@ namespace BlogWebsite.Migrations
                             Id = 8,
                             Author = "FitPro",
                             CategoryId = 2,
-                            Content = "Start your day with energy and strength.",
+                            Content = "A solid morning workout sets energy and mindset for the day. Start with 5-10 min dynamic warm-up (arm circles, leg swings, jumping jacks). Core routine: 20-30 min mix of cardio (jog/brisk walk), strength (bodyweight squats, push-ups, planks, lunges), and mobility (yoga flows). HIIT for efficiency—e.g., 30s burpees, 30s rest, repeat 8x. Add weights if available. Trends: personalized AI-coached sessions via wearables. Finish with stretching/breathing for recovery. Hydrate + protein-rich breakfast post-workout. Consistency beats intensity—aim 5 days/week. Benefits: boosted metabolism, better mood via endorphins, improved focus. Adapt to your level—beginners start shorter. Morning movement builds discipline and resilience.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Morning Workout Routine"
@@ -261,7 +260,7 @@ namespace BlogWebsite.Migrations
                             Id = 9,
                             Author = "MindfulSoul",
                             CategoryId = 2,
-                            Content = "Tips for managing stress and anxiety.",
+                            Content = "Mental health is as vital as physical in 2025-2026. Stress/anxiety management: daily mindfulness/meditation (apps like Headspace), journaling gratitude, limiting news/social media. Build support—talk to friends, therapy (online accessible). Sleep hygiene: 7-9h, consistent schedule, no screens pre-bed. Exercise and nature exposure reduce cortisol. Trends: teen/young adult focus, burnout recovery programs. Digital detox periods restore attention. Self-compassion over perfectionism. Recognize signs: persistent sadness, withdrawal—seek professional help early. Work boundaries prevent overload. Small daily wins (walks, hobbies) build resilience. Mental health thrives on proactive care, not crisis response.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Mental Health Matters"
@@ -271,7 +270,7 @@ namespace BlogWebsite.Migrations
                             Id = 10,
                             Author = "YogiBear",
                             CategoryId = 2,
-                            Content = "Improve flexibility and inner peace.",
+                            Content = "Yoga offers holistic benefits: physical (flexibility, strength, balance via poses like downward dog, warrior), mental (stress reduction through breath/pranayama), emotional (mindfulness fosters calm). Regular practice improves posture, joint health, circulation. Styles vary—Hatha for beginners, Vinyasa flow, Yin for deep stretches. 20-60 min sessions 3-5x/week yield results. Trends: augmented classes with wearables tracking form. Combines well with meditation. Benefits extend to better sleep, lower blood pressure, enhanced mood via GABA increase. Accessible anywhere—no fancy gear needed. Start slow, listen to body, use props. Yoga builds body awareness and inner peace for modern life.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Benefits of Yoga"
@@ -281,7 +280,7 @@ namespace BlogWebsite.Migrations
                             Id = 11,
                             Author = "Dreamer",
                             CategoryId = 2,
-                            Content = "Science-backed tips for quality sleep.",
+                            Content = "Quality sleep (7-9h) is foundational. Science-backed tips: consistent schedule—even weekends. Dark, cool (60-67°F), quiet room—blackout curtains, earplugs, white noise. No caffeine after 2pm, limit alcohol. Wind-down: no screens 1h pre-bed (blue light blocks melatonin), read or journal instead. Evening routine: light dinner, herbal tea, stretching. Track with wearables for patterns. Address issues: if insomnia, CBT-I over pills. Naps <30 min early afternoon. Benefits: sharper cognition, stronger immunity, better mood/weight control. Prioritize sleep—it's recovery time for brain/body.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Sleep Better Tonight"
@@ -291,7 +290,7 @@ namespace BlogWebsite.Migrations
                             Id = 12,
                             Author = "HydroMan",
                             CategoryId = 2,
-                            Content = "Why water is your best friend.",
+                            Content = "Water is essential—60% of body, regulates temp, transports nutrients, flushes toxins. Aim 3-4L daily (more if active/hot climate). Signs of dehydration: fatigue, headaches, dark urine. Tips: carry reusable bottle, set reminders, infuse with fruit/herbs for flavor. Electrolytes important during exercise/sweat. Trends: smart bottles track intake. Hydration boosts skin health, digestion, cognition. Coffee/tea count partially, but plain water best. Avoid sugary drinks. Proper hydration enhances energy, mood, performance—simple yet powerful habit.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Hydration and Health"
@@ -301,7 +300,7 @@ namespace BlogWebsite.Migrations
                             Id = 13,
                             Author = "Lockhead",
                             CategoryId = 3,
-                            Content = "Check out the most amazing travel destinations this year.",
+                            Content = "2025-2026 travel favors meaningful, less-crowded spots. Antarctica cruises boom for pristine nature. Asia's secondary cities (e.g., lesser-known Japan towns) grow fast. Europe: shoulder-season shoulder-season for moderate weather/climate adaptation. Wellness retreats in Costa Rica, Morocco. Nostalgic U.S. Route 66 centennial trips. Food-focused: coffee/culinary tours in emerging spots. Sustainable choices: eco-lodges, rail over flights. Personalization via AI planning. Destinations align with passions—hiking, culture, relaxation—for deeper connections.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Top Travel Destinations"
@@ -311,7 +310,7 @@ namespace BlogWebsite.Migrations
                             Id = 14,
                             Author = "EuroNomad",
                             CategoryId = 3,
-                            Content = "Budget tips for an epic European adventure.",
+                            Content = "Budget backpacking in Europe thrives with Eurail passes, hostels, street food. Plan shoulder seasons for savings/crowds. Must-visits: Eastern Europe (Poland, Czechia) cheaper than West. Apps: Rome2Rio, Hostelworld. Tips: pack light (carry-on only), use city cards, walk/cycle. Eat local markets. Safety: secure valuables, share itinerary. Cultural immersion over tourist traps. Sustainable: trains over planes. Europe offers history, variety, affordability for epic adventures on a budget.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Backpacking in Europe"
@@ -321,7 +320,7 @@ namespace BlogWebsite.Migrations
                             Id = 15,
                             Author = "AsiaExplorer",
                             CategoryId = 3,
-                            Content = "Off-the-beaten-path locations you must visit.",
+                            Content = "Off-beaten-path Asia: Bhutan for happiness focus, lesser-visited Thailand islands, Vietnam's highlands, Japan's countryside. Indonesia's lesser-known islands for diving. Tips: local transport, homestays for authenticity. Respect customs. Sustainable tourism key—avoid overtourism. Budget-friendly, rich culture/nature. Emerging spots offer tranquility, unique experiences away from crowds.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Hidden Gems in Asia"
@@ -331,7 +330,7 @@ namespace BlogWebsite.Migrations
                             Id = 16,
                             Author = "SoloWanderer",
                             CategoryId = 3,
-                            Content = "How to travel alone confidently.",
+                            Content = "Solo travel builds confidence. Safety: research destinations, share plans, use trusted apps (Maps.me offline). Accommodation: well-reviewed, central. Night: avoid isolated areas, trust instincts. Money: multiple cards, minimal cash. Connect: join group tours/meetups. Health: insurance, meds, vaccinations. Embrace freedom but stay aware—solo doesn't mean reckless. Empowering and rewarding.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Solo Travel Safety Tips"
@@ -341,7 +340,7 @@ namespace BlogWebsite.Migrations
                             Id = 17,
                             Author = "BeachLover",
                             CategoryId = 3,
-                            Content = "Paradise beaches around the world.",
+                            Content = "Paradise beaches 2025-2026: Seychelles for luxury seclusion, Bali's hidden coves, Portugal's Algarve for Europe access, Australia's Whitsundays. Trends: eco-friendly, less crowded. Activities: snorkeling, yoga retreats. Sustainable: reef-safe sunscreen, no single-use plastics. Beaches offer relaxation, adventure, natural beauty.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Best Beaches 2025"
@@ -351,7 +350,7 @@ namespace BlogWebsite.Migrations
                             Id = 18,
                             Author = "PeakClimber",
                             CategoryId = 3,
-                            Content = "Prepare for your next hiking adventure.",
+                            Content = "Mountain trekking preparation: fitness build-up (hikes, cardio), gear (good boots, layers, poles), acclimatization for altitude. Popular: Nepal Annapurna, Patagonia Torres del Paine. Safety: guides for remote, weather checks. Benefits: stunning views, mental clarity, achievement. Pack light, leave no trace. Adventure with respect for nature.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Mountain Trekking Guide"
@@ -361,7 +360,7 @@ namespace BlogWebsite.Migrations
                             Id = 19,
                             Author = "SimpleLife",
                             CategoryId = 4,
-                            Content = "Live more with less.",
+                            Content = "Minimalism evolves to intentional living—quality over quantity, digital declutter (fewer apps/notifications), sustainable choices. 2025-2026 trends: digital minimalism for focus, one-in-one-out rules, capsule wardrobes. Benefits: reduced stress, financial freedom, environmental impact. Start small: declutter spaces, curate possessions. Intentionality creates calm amid chaos.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Minimalism in 2025"
@@ -371,7 +370,7 @@ namespace BlogWebsite.Migrations
                             Id = 20,
                             Author = "TimeMaster",
                             CategoryId = 4,
-                            Content = "Get more done in less time.",
+                            Content = "Productivity 2025-2026: slow productivity (fewer tasks, deep focus), time-blocking, Pomodoro with breaks. Tools: distraction blockers, AI assistants for routine. Eliminate multitasking. Prioritize: Eisenhower matrix. Habits: morning routines, no-meeting days. Sustainable output beats burnout. Track progress, adjust. Get more done meaningfully.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Productivity Hacks"
@@ -381,7 +380,7 @@ namespace BlogWebsite.Migrations
                             Id = 21,
                             Author = "InteriorPro",
                             CategoryId = 4,
-                            Content = "Transform your space on a budget.",
+                            Content = "Budget home decor: multifunctional furniture, neutral palettes + accents, plants for life. Trends: sustainable materials, minimalist with personality. DIY shelves, thrifted finds. Lighting layers for ambiance. Declutter first—less stuff, better flow. Create cozy, functional spaces reflecting you.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Home Decor Ideas"
@@ -391,7 +390,7 @@ namespace BlogWebsite.Migrations
                             Id = 22,
                             Author = "StyleIcon",
                             CategoryId = 4,
-                            Content = "What to wear this year.",
+                            Content = "2025-2026 fashion: timeless pieces, sustainable fabrics, capsule wardrobes. Quiet luxury, gender-fluid styles. Accessories pop. Trends: vintage revivals, eco-materials. Invest in quality—buy less, better. Express individuality ethically.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Fashion Trends 2025"
@@ -401,7 +400,7 @@ namespace BlogWebsite.Migrations
                             Id = 23,
                             Author = "HabitBuilder",
                             CategoryId = 4,
-                            Content = "Small changes, big results.",
+                            Content = "Habit building: start tiny (Atomic Habits style), stack (after coffee → meditate), track streaks. Environment design: cues visible. Consistency > perfection. 21-66 days to solidify. Accountability partners help. Small changes yield big results over time.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Building Good Habits"
@@ -411,7 +410,7 @@ namespace BlogWebsite.Migrations
                             Id = 24,
                             Author = "MoneyWise",
                             CategoryId = 4,
-                            Content = "Manage money like a pro.",
+                            Content = "Financial freedom: budget (50/30/20), emergency fund (3-6 months), debt payoff (snowball/avalanche). Invest early—index funds, retirement accounts. Side hustles boost income. Mindful spending, avoid lifestyle creep. Track net worth monthly. Freedom through discipline and smart choices.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Financial Freedom Tips"
@@ -421,7 +420,7 @@ namespace BlogWebsite.Migrations
                             Id = 25,
                             Author = "Cinephile",
                             CategoryId = 5,
-                            Content = "Must-watch films this year.",
+                            Content = "2025 must-watch: innovative blockbusters, indie gems, AI-influenced storytelling. Trends: immersive experiences, limited series crossovers. Diverse narratives, visual spectacle. From sci-fi epics to emotional dramas—cinema evolves with tech and culture.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Best Movies of 2025"
@@ -431,7 +430,7 @@ namespace BlogWebsite.Migrations
                             Id = 26,
                             Author = "GamerX",
                             CategoryId = 5,
-                            Content = "Games you can't miss.",
+                            Content = "2025 games: AI-generated worlds, cloud gaming boom, immersive narratives. Trends: mobile-first, social features. Indie standouts, AAA spectacles. Genres blend—RPGs with survival. Gaming as social/activity hub.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Top Video Games 2025"
@@ -441,7 +440,7 @@ namespace BlogWebsite.Migrations
                             Id = 27,
                             Author = "MusicLover",
                             CategoryId = 5,
-                            Content = "Fresh tracks to add to your playlist.",
+                            Content = "Fresh 2025 tracks: genre fusions, AI-assisted production, viral sensations. Playlists personalize discovery. Artists experiment—live-streamed creations. Add diverse sounds to your rotation for inspiration.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "New Music Releases"
@@ -451,7 +450,7 @@ namespace BlogWebsite.Migrations
                             Id = 28,
                             Author = "Bookworm",
                             CategoryId = 5,
-                            Content = "Page-turners for every mood.",
+                            Content = "Page-turners 2025: thrillers, sci-fi exploring AI, self-growth. Diverse voices, immersive worlds. Mix fiction/non-fiction for balance. Reading builds empathy, knowledge. Curate based on mood.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Book Recommendations"
@@ -461,7 +460,7 @@ namespace BlogWebsite.Migrations
                             Id = 29,
                             Author = "SeriesFan",
                             CategoryId = 5,
-                            Content = "Addictive shows worth your time.",
+                            Content = "Addictive 2025 shows: limited series dominate, high production. Themes: dystopian, human-AI relations. Quality over quantity—binge-worthy narratives. Streaming wars fuel innovation.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "TV Series to Binge"
@@ -471,7 +470,7 @@ namespace BlogWebsite.Migrations
                             Id = 30,
                             Author = "FunnyGuy",
                             CategoryId = 5,
-                            Content = "Laugh out loud with these stand-ups.",
+                            Content = "Laugh-out-loud 2025 stand-up: observational humor, social commentary, viral bits. Platforms democratize access. Diverse perspectives keep comedy fresh and relatable.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Comedy Specials 2025"
@@ -481,7 +480,7 @@ namespace BlogWebsite.Migrations
                             Id = 31,
                             Author = "CloudGuy",
                             CategoryId = 1,
-                            Content = "Intro to cloud services and providers.",
+                            Content = "Cloud computing demystified: IaaS/PaaS/SaaS models, major providers (AWS, Azure, GCP). Benefits: scalability, cost savings, global reach. Trends: hybrid/multi-cloud, edge integration. Security: encryption, IAM. Start with free tiers for learning.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Cloud Computing Basics"
@@ -491,7 +490,7 @@ namespace BlogWebsite.Migrations
                             Id = 32,
                             Author = "DevOpsNinja",
                             CategoryId = 1,
-                            Content = "CI/CD and automation explained simply.",
+                            Content = "DevOps intro: CI/CD pipelines, automation (Jenkins, GitHub Actions), infrastructure as code (Terraform). Culture of collaboration. Benefits: faster releases, reliability. Start small: automate tests/deployments.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "DevOps for Beginners"
@@ -501,7 +500,7 @@ namespace BlogWebsite.Migrations
                             Id = 33,
                             Author = "BlockSmith",
                             CategoryId = 1,
-                            Content = "Real world blockchain use cases.",
+                            Content = "Blockchain applications: supply chain transparency, voting systems, digital identity, NFTs evolving to utility. Decentralized finance (DeFi), smart contracts. Challenges: scalability, energy use. Real-world impact growing.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Blockchain Beyond Crypto"
@@ -511,7 +510,7 @@ namespace BlogWebsite.Migrations
                             Id = 34,
                             Author = "FutureCoder",
                             CategoryId = 1,
-                            Content = "How coding will change in next decade.",
+                            Content = "Programming next decade: AI co-pilots write code, low-code/no-code rise, quantum-resistant languages. Focus shifts to problem-solving, architecture. Lifelong learning essential.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Future of Programming"
@@ -521,7 +520,7 @@ namespace BlogWebsite.Migrations
                             Id = 35,
                             Author = "HealthGeek",
                             CategoryId = 2,
-                            Content = "Which workout is better?",
+                            Content = "Cardio burns calories, heart health; strength builds muscle, bone density, metabolism. Best: combine both—circuit training. Personalize based on goals (endurance vs power).",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Cardio vs Strength Training"
@@ -531,7 +530,7 @@ namespace BlogWebsite.Migrations
                             Id = 36,
                             Author = "DrWell",
                             CategoryId = 2,
-                            Content = "Daily habits for strong immunity.",
+                            Content = "Immunity habits: balanced diet (vitamins C/D, zinc), sleep, exercise, stress management, probiotics. Vaccines key. Avoid extremes—consistency wins.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Boost Your Immunity"
@@ -541,7 +540,7 @@ namespace BlogWebsite.Migrations
                             Id = 37,
                             Author = "OfficeFit",
                             CategoryId = 2,
-                            Content = "Stay healthy with office work.",
+                            Content = "Desk job survival: stand hourly, ergonomic setup, eye breaks (20-20-20), stretches. Walk meetings, healthy snacks. Combat sedentary risks.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Desk Job Health Tips"
@@ -551,7 +550,7 @@ namespace BlogWebsite.Migrations
                             Id = 38,
                             Author = "ZenCoach",
                             CategoryId = 2,
-                            Content = "Simple breathing for calm mind.",
+                            Content = "Breathing techniques: 4-7-8 for calm, box breathing for focus, diaphragmatic for stress. Daily 5-10 min transforms mindset.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Breathing Exercises"
@@ -561,7 +560,7 @@ namespace BlogWebsite.Migrations
                             Id = 39,
                             Author = "BudgetNomad",
                             CategoryId = 3,
-                            Content = "Travel more by spending less.",
+                            Content = "Budget travel: off-peak, local food/transport, hostels/couchsurfing, flight alerts. Pack versatile clothes. Experiences over luxury.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Budget Travel Tips"
@@ -571,7 +570,7 @@ namespace BlogWebsite.Migrations
                             Id = 40,
                             Author = "PackSmart",
                             CategoryId = 3,
-                            Content = "Never forget essentials again.",
+                            Content = "Packing essentials: documents, versatile clothes, adapters, meds, reusable items. Roll clothes, use cubes. Light load = easier travel.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Travel Packing Checklist"
@@ -581,7 +580,7 @@ namespace BlogWebsite.Migrations
                             Id = 41,
                             Author = "AppTraveler",
                             CategoryId = 3,
-                            Content = "Apps every traveler should use.",
+                            Content = "Top apps: Google Maps offline, Rome2Rio, Duolingo, XE currency, TripIt. Booking: Kayak, Hostelworld. Safety: bSafe.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Best Travel Apps"
@@ -591,7 +590,7 @@ namespace BlogWebsite.Migrations
                             Id = 42,
                             Author = "CultureGuide",
                             CategoryId = 3,
-                            Content = "Respect local cultures while traveling.",
+                            Content = "Respect cultures: learn greetings, dress modestly, tipping norms, remove shoes indoors. Observe, ask politely. Travel enriches through understanding.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Cultural Travel Etiquette"
@@ -601,7 +600,7 @@ namespace BlogWebsite.Migrations
                             Id = 43,
                             Author = "LifeCoach",
                             CategoryId = 4,
-                            Content = "Start your day right.",
+                            Content = "Successful routines: early rise, hydration, exercise/meditation, planning day. No phone first hour. Build momentum.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Morning Routines of Success"
@@ -611,7 +610,7 @@ namespace BlogWebsite.Migrations
                             Id = 44,
                             Author = "CalmMind",
                             CategoryId = 4,
-                            Content = "Reduce screen time stress.",
+                            Content = "Digital detox: scheduled screen-free time, grayscale mode, app limits. Benefits: focus, presence, creativity. Start weekends.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Digital Detox"
@@ -621,7 +620,7 @@ namespace BlogWebsite.Migrations
                             Id = 45,
                             Author = "BalancePro",
                             CategoryId = 4,
-                            Content = "Balance career and personal life.",
+                            Content = "Balance: set boundaries, prioritize self/family, hobbies. Delegate, say no. Sustainable success includes rest.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Work Life Balance"
@@ -631,7 +630,7 @@ namespace BlogWebsite.Migrations
                             Id = 46,
                             Author = "MindTrainer",
                             CategoryId = 4,
-                            Content = "Train your mind for consistency.",
+                            Content = "Discipline: habit stacking, temptation bundling, accountability. Mindset: progress over perfection. Train consistency.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Self Discipline Hacks"
@@ -641,7 +640,7 @@ namespace BlogWebsite.Migrations
                             Id = 47,
                             Author = "StreamCritic",
                             CategoryId = 5,
-                            Content = "Which streaming service is best?",
+                            Content = "Streaming 2025-2026: Netflix originals, Disney+ Marvel/Star Wars, Prime Video sports, HBO Max quality. Compare libraries, pricing, ads.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "OTT Platforms Compared"
@@ -651,7 +650,7 @@ namespace BlogWebsite.Migrations
                             Id = 48,
                             Author = "OtakuSensei",
                             CategoryId = 5,
-                            Content = "Top anime recommendations.",
+                            Content = "Top anime: new seasons, isekai twists, emotional dramas. Streaming on Crunchyroll, Netflix. Diverse genres for all tastes.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Anime to Watch 2025"
@@ -661,7 +660,7 @@ namespace BlogWebsite.Migrations
                             Id = 49,
                             Author = "FilmInsider",
                             CategoryId = 5,
-                            Content = "How movies are really made.",
+                            Content = "Movie magic: VFX breakdowns, directing choices, actor prep. Documentaries reveal craft. Appreciate artistry beyond screen.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Behind the Scenes Movies"
@@ -671,7 +670,7 @@ namespace BlogWebsite.Migrations
                             Id = 50,
                             Author = "SoundWave",
                             CategoryId = 5,
-                            Content = "Understand different music styles.",
+                            Content = "Genres guide: hip-hop evolution, electronic subgenres, indie rock revival, global fusions. Understand roots, key artists. Expand tastes.",
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Music Genres Explained"
