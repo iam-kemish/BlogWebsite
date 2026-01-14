@@ -1,0 +1,46 @@
+﻿@model HomeVM
+
+<form method="post">
+    <div class="container mt-5">
+       
+        <div class="card shadow border-0">
+            <div class="card-header bg-primary bg-gradient text-white py-4">
+                <div class="text-center">
+                    <h3 class="text-uppercase fw-bold">Post Details</h3>
+                    <p class="text-white-50 fw-semibold mb-0">See the details of the Post below</p>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <!-- Product Image -->
+                    <div class="col-12 col-lg-4 text-center mb-4">
+                        <img src="@Model.post?.FeatureImagePath" class="img-fluid rounded shadow-sm" alt="Post Image" />
+                    </div>
+                    <!-- Product Details -->
+                    <div class="col-12 col-lg-8">
+                        <h4 class="fw-bold text-dark">@Model.post?.Title</h4>
+                        <div class="mb-3">
+                            <span class="badge bg-secondary">@Model.post?.Category?.Name</span>
+                        </div>
+                        <p class="text-muted">@Model.post.Content</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Author:</strong> @Model.post.Author</li>
+                           
+                        </ul>
+
+                  
+
+                        <div class="mt-4 d-flex gap-3">
+                            <a asp-action="Index" class="btn btn-outline-secondary fw-semibold">
+                                <i class="bi bi-arrow-left"></i> Back to List
+                            </a>
+                           
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>

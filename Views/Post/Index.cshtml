@@ -28,7 +28,7 @@
                     {
                         <tr>
                             <td>@item.Title</td>
-                            <td>@ToTrimDesc(item.Content, 50)</td>
+                            <td>@ToTrimDesc(item.Content, 50)...</td>
                             <td>@item.Author</td>
                             <td>@item.PublishedDate</td>
                             <td>@item.Category?.Name</td>
@@ -95,4 +95,4 @@
         // if (string.IsNullOrEmpty(text)) return text;
         return text.Length > limit ? text.Substring(0, limit) + "..." : text;
     }
-} status
+} 

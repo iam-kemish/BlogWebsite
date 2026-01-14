@@ -57,7 +57,13 @@ namespace BlogWebsite.Repositary.PostRepositary
         public async Task<Post?> GetPost(Expression<Func<Post, bool>>? filter = null)
         {
 
-            return await _context.Posts.Where(filter).FirstOrDefaultAsync();
+            var query = _context.Posts.Include(p => p.Category).AsQueryable();
+              if(filter != null)
+            {
+                query = query.Where(filter);    
+            }
+              return await query.FirstOrDefaultAsync();
+          
         }
 
         public async Task UpdatePost(Post post)
