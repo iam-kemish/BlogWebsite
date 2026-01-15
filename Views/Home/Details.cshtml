@@ -1,4 +1,4 @@
-﻿@model HomeVM
+﻿@model PostDetailsVM
 
 <form method="post">
     <div class="container mt-5">
@@ -22,9 +22,9 @@
                         <div class="mb-3">
                             <span class="badge bg-secondary">@Model.post?.Category?.Name</span>
                         </div>
-                        <p class="text-muted">@Model.post.Content</p>
+                        <p class="text-muted">@Model.post?.Content</p>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><strong>Author:</strong> @Model.post.Author</li>
+                            <li class="list-group-item"><strong>Author:</strong> @Model.post?.Author</li>
                            
                         </ul>
 
@@ -43,4 +43,21 @@
         </div>
     </div>
 
+</form>
+<form asp-controller="Home" asp-action="AddComment" method="post">
+   
+
+    <input type="hidden" asp-for="comment.PostId" />
+
+    <div class="mb-3">
+        <label>User name</label>
+        <input type="text" name="UserName" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label>Comment</label>
+        <textarea name="Content" class="form-control" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Comment</button>
 </form>

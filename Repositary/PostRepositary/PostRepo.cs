@@ -57,7 +57,8 @@ namespace BlogWebsite.Repositary.PostRepositary
         public async Task<Post?> GetPost(Expression<Func<Post, bool>>? filter = null)
         {
 
-            var query = _context.Posts.Include(p => p.Category).AsQueryable();
+            var query = _context.Posts.Include(p => p.Category)
+                                     .Include(p=>p.Comments).AsQueryable();
               if(filter != null)
             {
                 query = query.Where(filter);    
