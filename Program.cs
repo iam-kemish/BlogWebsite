@@ -1,5 +1,6 @@
 using BlogWebsite.Database;
 using BlogWebsite.Repositary.CategoryRepositary;
+using BlogWebsite.Repositary.CommentRepositary;
 using BlogWebsite.Repositary.PostRepositary;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +12,8 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 builder.Services.AddScoped<IPost, PostRepo>();
-builder.Services.AddScoped<ICategory,CategoryRepo>();   
+builder.Services.AddScoped<ICategory,CategoryRepo>();
+builder.Services.AddScoped<IComment, CommentClass>();
 
 var app = builder.Build();
 

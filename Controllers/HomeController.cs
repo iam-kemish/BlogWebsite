@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.Linq.Expressions;
 using BlogWebsite.Models;
 using BlogWebsite.Repositary.CategoryRepositary;
+using BlogWebsite.Repositary.CommentRepositary;
 using BlogWebsite.Repositary.PostRepositary;
 using BlogWebsite.Views.Viewmodels;
 using Microsoft.AspNetCore.Mvc;
@@ -14,11 +15,13 @@ namespace BlogWebsite.Controllers
 
         private readonly IPost _IPost;
         private readonly ICategory _ICategory;
+        private readonly IComment _IComment;
 
-        public HomeController(IPost post, ICategory category)
+        public HomeController(IPost post, ICategory category, IComment comment)
         {
             _IPost = post;
             _ICategory = category;
+            _IComment = comment;
         }
 
         public async Task<IActionResult> Index(int? categoryId, int PageNumber=1)
@@ -40,12 +43,34 @@ namespace BlogWebsite.Controllers
         }
        public async Task<IActionResult> Details(int PostId)
         {
-            HomeVM homeVM = new()
+            var newpost = await _IPost.GetPost(u => u.Id == PostId);
+            if(newpost == null)
             {
-                post = await _IPost.GetPost(u => u.Id == PostId),
-
+                return NotFound();
+            }
+            PostDetailsVM postDetails = new()
+            {
+                post = newpost,
+                comment = new Comment
+                {
+                    PostId = newpost.Id
+                }
             };
-            return View(homeVM);
+            return View(postDetails);
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddComment(Comment comment)
+        {
+            if (ModelState.IsValid)
+            {
+                await _IComment.AddCommentAsync(comment);
+
+                return RedirectToAction(nameof(Details));
+            }
+            return RedirectToAction(nameof(Details));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
