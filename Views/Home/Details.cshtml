@@ -61,3 +61,22 @@
 
     <button type="submit" class="btn btn-primary">Add Comment</button>
 </form>
+<div class="mt-5">
+    <h5>Comments (@(Model.post.Comments?.Count ?? 0))</h5>
+
+    @if (Model.post.Comments?.Any() == true)
+    {
+        @foreach (var c in Model.post.Comments.OrderByDescending(x => x.CreatedDate))
+        {
+            <div class="border-start border-4 border-primary ps-3 mb-4">
+                <strong>@c.UserName</strong>
+                <small class="text-muted ms-2">— @c.CreatedDate.ToString("MMM dd, yyyy HH:mm")</small>
+                <p class="mt-1 mb-0">@c.Content</p>
+            </div>
+        }
+    }
+    else
+    {
+        <p class="text-muted fst-italic">No comments yet.</p>
+    }
+</div>
