@@ -45,18 +45,18 @@
 
 </form>
 <form asp-controller="Home" asp-action="AddComment" method="post">
-   
 
-    <input type="hidden" asp-for="comment.PostId" />
+  
+    <input type="hidden" asp-for="@Model.comment.PostId" />
 
     <div class="mb-3">
         <label>User name</label>
-        <input type="text" name="UserName" class="form-control" required />
+        <input type="text"  asp-for="comment.UserName" class="form-control" required />
     </div>
 
     <div class="mb-3">
         <label>Comment</label>
-        <textarea name="Content" class="form-control" required></textarea>
+        <textarea class="form-control" asp-for="comment.Content" required></textarea>
     </div>
 
     <button type="submit" class="btn btn-primary">Add Comment</button>

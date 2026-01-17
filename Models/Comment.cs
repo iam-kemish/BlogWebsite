@@ -15,6 +15,7 @@ namespace BlogWebsite.Models
         public string Content { get; set; }
         [ForeignKey("Post")]
         public int PostId { get; set; }
-        public Post Post { get; set; }
+        public Post? Post { get; set; }
+        
     }
 }
