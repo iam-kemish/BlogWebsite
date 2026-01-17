@@ -68,9 +68,9 @@ namespace BlogWebsite.Controllers
             {
                 await _IComment.AddCommentAsync(comment);
 
-                return RedirectToAction(nameof(Details));
+                return RedirectToAction(nameof(Details), new {postId = comment.PostId});
             }
-            return RedirectToAction(nameof(Details));
+            return RedirectToAction(nameof(Details), new { PostId = comment.PostId });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
