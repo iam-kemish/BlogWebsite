@@ -22,6 +22,71 @@ namespace BlogWebsite.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("BlogWebsite.Models.AppUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
             modelBuilder.Entity("BlogWebsite.Models.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -217,26 +282,6 @@ namespace BlogWebsite.Migrations
                         },
                         new
                         {
-                            Id = 5,
-                            Author = "NetWizard",
-                            CategoryId = 1,
-                            Content = "5G transformed connectivity with speeds up to 10Gbps, ultra-low latency (<1ms in ideal cases), and support for millions of devices per km²—powering smart cities, autonomous vehicles, AR/VR, and private enterprise networks. In 2025-2026, 5G-Advanced adds AI optimization and energy efficiency. 6G, targeting 2030 commercialization but with trials accelerating, aims for terabit speeds, sub-millisecond latency, and integration of communication, sensing, and AI. Terahertz bands enable massive bandwidth; AI-native networks self-optimize; joint communication-sensing allows radar-like environmental mapping. Applications: holographic telepresence, digital twins at scale, brain-computer interfaces. Challenges: spectrum policy, hardware for high frequencies, power consumption. The bridge is 5G evolving into 6G via non-terrestrial networks (satellites) and intelligent surfaces. For users, 6G could mean seamless immersive worlds and real-time global sync—redefining remote work, entertainment, and healthcare.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "5G vs 6G: What's Next?"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Author = "SecureOne",
-                            CategoryId = 1,
-                            Content = "Cyber threats in 2025-2026 are AI-amplified: automated phishing, deepfake social engineering, ransomware-as-a-service, and supply-chain attacks. Core tips: Use password managers + passkeys/MFA everywhere (biometrics preferred). Update everything—OS, apps, firmware—to close exploits. Phishing awareness: verify URLs/senders, avoid unsolicited attachments/links, use email filters. Employ reputable EDR/antivirus with behavioral analysis. For personal use: VPN on public Wi-Fi, avoid sharing sensitive data, enable auto-lock. Businesses: Adopt zero-trust (verify every access), segment networks, regular backups (immutable/offline), incident response drills. Train on AI threats like voice cloning. Monitor dark web for leaked credentials. Proactive habits beat recovery—cyber hygiene is as essential as brushing teeth in the digital age.",
-                            ImageUrl = "/images/Posts/Cybersecurity Tips 2025.jfif",
-                            PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Cybersecurity Tips 2025"
-                        },
-                        new
-                        {
                             Id = 7,
                             Author = "Ramsay",
                             CategoryId = 2,
@@ -287,16 +332,6 @@ namespace BlogWebsite.Migrations
                         },
                         new
                         {
-                            Id = 12,
-                            Author = "HydroMan",
-                            CategoryId = 2,
-                            Content = "Water is essential—60% of body, regulates temp, transports nutrients, flushes toxins. Aim 3-4L daily (more if active/hot climate). Signs of dehydration: fatigue, headaches, dark urine. Tips: carry reusable bottle, set reminders, infuse with fruit/herbs for flavor. Electrolytes important during exercise/sweat. Trends: smart bottles track intake. Hydration boosts skin health, digestion, cognition. Coffee/tea count partially, but plain water best. Avoid sugary drinks. Proper hydration enhances energy, mood, performance—simple yet powerful habit.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Hydration and Health"
-                        },
-                        new
-                        {
                             Id = 13,
                             Author = "Lockhead",
                             CategoryId = 3,
@@ -334,16 +369,6 @@ namespace BlogWebsite.Migrations
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Solo Travel Safety Tips"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            Author = "BeachLover",
-                            CategoryId = 3,
-                            Content = "Paradise beaches 2025-2026: Seychelles for luxury seclusion, Bali's hidden coves, Portugal's Algarve for Europe access, Australia's Whitsundays. Trends: eco-friendly, less crowded. Activities: snorkeling, yoga retreats. Sustainable: reef-safe sunscreen, no single-use plastics. Beaches offer relaxation, adventure, natural beauty.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Best Beaches 2025"
                         },
                         new
                         {
@@ -387,36 +412,6 @@ namespace BlogWebsite.Migrations
                         },
                         new
                         {
-                            Id = 22,
-                            Author = "StyleIcon",
-                            CategoryId = 4,
-                            Content = "2025-2026 fashion: timeless pieces, sustainable fabrics, capsule wardrobes. Quiet luxury, gender-fluid styles. Accessories pop. Trends: vintage revivals, eco-materials. Invest in quality—buy less, better. Express individuality ethically.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Fashion Trends 2025"
-                        },
-                        new
-                        {
-                            Id = 23,
-                            Author = "HabitBuilder",
-                            CategoryId = 4,
-                            Content = "Habit building: start tiny (Atomic Habits style), stack (after coffee → meditate), track streaks. Environment design: cues visible. Consistency > perfection. 21-66 days to solidify. Accountability partners help. Small changes yield big results over time.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Building Good Habits"
-                        },
-                        new
-                        {
-                            Id = 24,
-                            Author = "MoneyWise",
-                            CategoryId = 4,
-                            Content = "Financial freedom: budget (50/30/20), emergency fund (3-6 months), debt payoff (snowball/avalanche). Invest early—index funds, retirement accounts. Side hustles boost income. Mindful spending, avoid lifestyle creep. Track net worth monthly. Freedom through discipline and smart choices.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Financial Freedom Tips"
-                        },
-                        new
-                        {
                             Id = 25,
                             Author = "Cinephile",
                             CategoryId = 5,
@@ -454,227 +449,140 @@ namespace BlogWebsite.Migrations
                             ImageUrl = "/images/posts/default.jpg",
                             PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Book Recommendations"
-                        },
-                        new
-                        {
-                            Id = 29,
-                            Author = "SeriesFan",
-                            CategoryId = 5,
-                            Content = "Addictive 2025 shows: limited series dominate, high production. Themes: dystopian, human-AI relations. Quality over quantity—binge-worthy narratives. Streaming wars fuel innovation.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "TV Series to Binge"
-                        },
-                        new
-                        {
-                            Id = 30,
-                            Author = "FunnyGuy",
-                            CategoryId = 5,
-                            Content = "Laugh-out-loud 2025 stand-up: observational humor, social commentary, viral bits. Platforms democratize access. Diverse perspectives keep comedy fresh and relatable.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Comedy Specials 2025"
-                        },
-                        new
-                        {
-                            Id = 31,
-                            Author = "CloudGuy",
-                            CategoryId = 1,
-                            Content = "Cloud computing demystified: IaaS/PaaS/SaaS models, major providers (AWS, Azure, GCP). Benefits: scalability, cost savings, global reach. Trends: hybrid/multi-cloud, edge integration. Security: encryption, IAM. Start with free tiers for learning.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Cloud Computing Basics"
-                        },
-                        new
-                        {
-                            Id = 32,
-                            Author = "DevOpsNinja",
-                            CategoryId = 1,
-                            Content = "DevOps intro: CI/CD pipelines, automation (Jenkins, GitHub Actions), infrastructure as code (Terraform). Culture of collaboration. Benefits: faster releases, reliability. Start small: automate tests/deployments.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "DevOps for Beginners"
-                        },
-                        new
-                        {
-                            Id = 33,
-                            Author = "BlockSmith",
-                            CategoryId = 1,
-                            Content = "Blockchain applications: supply chain transparency, voting systems, digital identity, NFTs evolving to utility. Decentralized finance (DeFi), smart contracts. Challenges: scalability, energy use. Real-world impact growing.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Blockchain Beyond Crypto"
-                        },
-                        new
-                        {
-                            Id = 34,
-                            Author = "FutureCoder",
-                            CategoryId = 1,
-                            Content = "Programming next decade: AI co-pilots write code, low-code/no-code rise, quantum-resistant languages. Focus shifts to problem-solving, architecture. Lifelong learning essential.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Future of Programming"
-                        },
-                        new
-                        {
-                            Id = 35,
-                            Author = "HealthGeek",
-                            CategoryId = 2,
-                            Content = "Cardio burns calories, heart health; strength builds muscle, bone density, metabolism. Best: combine both—circuit training. Personalize based on goals (endurance vs power).",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Cardio vs Strength Training"
-                        },
-                        new
-                        {
-                            Id = 36,
-                            Author = "DrWell",
-                            CategoryId = 2,
-                            Content = "Immunity habits: balanced diet (vitamins C/D, zinc), sleep, exercise, stress management, probiotics. Vaccines key. Avoid extremes—consistency wins.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Boost Your Immunity"
-                        },
-                        new
-                        {
-                            Id = 37,
-                            Author = "OfficeFit",
-                            CategoryId = 2,
-                            Content = "Desk job survival: stand hourly, ergonomic setup, eye breaks (20-20-20), stretches. Walk meetings, healthy snacks. Combat sedentary risks.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Desk Job Health Tips"
-                        },
-                        new
-                        {
-                            Id = 38,
-                            Author = "ZenCoach",
-                            CategoryId = 2,
-                            Content = "Breathing techniques: 4-7-8 for calm, box breathing for focus, diaphragmatic for stress. Daily 5-10 min transforms mindset.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Breathing Exercises"
-                        },
-                        new
-                        {
-                            Id = 39,
-                            Author = "BudgetNomad",
-                            CategoryId = 3,
-                            Content = "Budget travel: off-peak, local food/transport, hostels/couchsurfing, flight alerts. Pack versatile clothes. Experiences over luxury.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Budget Travel Tips"
-                        },
-                        new
-                        {
-                            Id = 40,
-                            Author = "PackSmart",
-                            CategoryId = 3,
-                            Content = "Packing essentials: documents, versatile clothes, adapters, meds, reusable items. Roll clothes, use cubes. Light load = easier travel.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Travel Packing Checklist"
-                        },
-                        new
-                        {
-                            Id = 41,
-                            Author = "AppTraveler",
-                            CategoryId = 3,
-                            Content = "Top apps: Google Maps offline, Rome2Rio, Duolingo, XE currency, TripIt. Booking: Kayak, Hostelworld. Safety: bSafe.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Best Travel Apps"
-                        },
-                        new
-                        {
-                            Id = 42,
-                            Author = "CultureGuide",
-                            CategoryId = 3,
-                            Content = "Respect cultures: learn greetings, dress modestly, tipping norms, remove shoes indoors. Observe, ask politely. Travel enriches through understanding.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Cultural Travel Etiquette"
-                        },
-                        new
-                        {
-                            Id = 43,
-                            Author = "LifeCoach",
-                            CategoryId = 4,
-                            Content = "Successful routines: early rise, hydration, exercise/meditation, planning day. No phone first hour. Build momentum.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Morning Routines of Success"
-                        },
-                        new
-                        {
-                            Id = 44,
-                            Author = "CalmMind",
-                            CategoryId = 4,
-                            Content = "Digital detox: scheduled screen-free time, grayscale mode, app limits. Benefits: focus, presence, creativity. Start weekends.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Digital Detox"
-                        },
-                        new
-                        {
-                            Id = 45,
-                            Author = "BalancePro",
-                            CategoryId = 4,
-                            Content = "Balance: set boundaries, prioritize self/family, hobbies. Delegate, say no. Sustainable success includes rest.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Work Life Balance"
-                        },
-                        new
-                        {
-                            Id = 46,
-                            Author = "MindTrainer",
-                            CategoryId = 4,
-                            Content = "Discipline: habit stacking, temptation bundling, accountability. Mindset: progress over perfection. Train consistency.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Self Discipline Hacks"
-                        },
-                        new
-                        {
-                            Id = 47,
-                            Author = "StreamCritic",
-                            CategoryId = 5,
-                            Content = "Streaming 2025-2026: Netflix originals, Disney+ Marvel/Star Wars, Prime Video sports, HBO Max quality. Compare libraries, pricing, ads.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "OTT Platforms Compared"
-                        },
-                        new
-                        {
-                            Id = 48,
-                            Author = "OtakuSensei",
-                            CategoryId = 5,
-                            Content = "Top anime: new seasons, isekai twists, emotional dramas. Streaming on Crunchyroll, Netflix. Diverse genres for all tastes.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Anime to Watch 2025"
-                        },
-                        new
-                        {
-                            Id = 49,
-                            Author = "FilmInsider",
-                            CategoryId = 5,
-                            Content = "Movie magic: VFX breakdowns, directing choices, actor prep. Documentaries reveal craft. Appreciate artistry beyond screen.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Behind the Scenes Movies"
-                        },
-                        new
-                        {
-                            Id = 50,
-                            Author = "SoundWave",
-                            CategoryId = 5,
-                            Content = "Genres guide: hip-hop evolution, electronic subgenres, indie rock revival, global fusions. Understand roots, key artists. Expand tastes.",
-                            ImageUrl = "/images/posts/default.jpg",
-                            PublishedDate = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Music Genres Explained"
                         });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
                 });
 
             modelBuilder.Entity("BlogWebsite.Models.Comment", b =>
@@ -697,6 +605,57 @@ namespace BlogWebsite.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("BlogWebsite.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("BlogWebsite.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BlogWebsite.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("BlogWebsite.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("BlogWebsite.Models.Category", b =>

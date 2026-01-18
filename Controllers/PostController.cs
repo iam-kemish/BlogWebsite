@@ -65,7 +65,7 @@ public class PostController : Controller
             string wwwRootPath = _WebHostEnvironment.WebRootPath;
             // Handle image upload ONLY if a new file was provided
             var allowedExt = new[] { ".jpg", ".jpeg", ".png", ".webp",".jfif" };
-
+            var existingPost = await _IPost.GetPost(u => u.Id == id);
             //validate image.
             if (postVM.FeatureImage != null)
             {
@@ -82,10 +82,10 @@ public class PostController : Controller
                     Directory.CreateDirectory(folderPath);
 
                 // Delete old image if exists
-                var exisitingPost = await _IPost.GetPost(u => u.Id == id);
-                if (exisitingPost != null && !string.IsNullOrEmpty(exisitingPost.FeatureImagePath))
+              
+                if (existingPost != null && !string.IsNullOrEmpty(existingPost.FeatureImagePath))
                 {
-                    var oldPath = Path.Combine(wwwRootPath, exisitingPost.FeatureImagePath.TrimStart('/'));
+                    var oldPath = Path.Combine(wwwRootPath, existingPost.FeatureImagePath.TrimStart('/'));
                     if (System.IO.File.Exists(oldPath))
                         System.IO.File.Delete(oldPath);
                 }
@@ -115,7 +115,7 @@ public class PostController : Controller
             }
             else
             {
-                var existingPost = await _IPost.GetPost(u => u.Id == id);
+               
                 if (existingPost != null)
                 {
                     existingPost.Title = postVM.Post.Title;
