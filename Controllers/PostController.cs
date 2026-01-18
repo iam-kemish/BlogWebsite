@@ -82,9 +82,10 @@ public class PostController : Controller
                     Directory.CreateDirectory(folderPath);
 
                 // Delete old image if exists
-                if (!string.IsNullOrEmpty(postVM.Post?.FeatureImagePath))
+                var exisitingPost = await _IPost.GetPost(u => u.Id == id);
+                if (exisitingPost != null && !string.IsNullOrEmpty(exisitingPost.FeatureImagePath))
                 {
-                    var oldPath = Path.Combine(wwwRootPath, postVM.Post.FeatureImagePath.TrimStart('/'));
+                    var oldPath = Path.Combine(wwwRootPath, exisitingPost.FeatureImagePath.TrimStart('/'));
                     if (System.IO.File.Exists(oldPath))
                         System.IO.File.Delete(oldPath);
                 }
@@ -103,29 +104,29 @@ public class PostController : Controller
 
                     postVM.Post.FeatureImagePath = "/images/" + fileName;
                 
-                // If no new image uploaded → keep the existing FeatureImagePath (do nothing)
-
-                if (id == 0 || id == null)
-                {
-                    // Create new
-                    await _IPost.AddPost(postVM.Post);
-                }
-                else
-                {
-                    var existingPost = await _IPost.GetPost(u => u.Id == id);
-                    if (existingPost != null)
-                    {
-                        existingPost.Title = postVM.Post.Title;
-                        existingPost.Author = postVM.Post.Author;
-                        existingPost.Content = postVM.Post.Content;
-                        existingPost.CategoryId = postVM.Post.CategoryId;
-                        existingPost.FeatureImagePath = postVM.Post.FeatureImagePath;
-                    }
-                    // Update existing
-                    await _IPost.UpdatePost(existingPost);
-                }
+             
             }
-               
+            // If no new image uploaded → keep the existing FeatureImagePath (do nothing)
+
+            if (id == 0 || id == null)
+            {
+                // Create new
+                await _IPost.AddPost(postVM.Post);
+            }
+            else
+            {
+                var existingPost = await _IPost.GetPost(u => u.Id == id);
+                if (existingPost != null)
+                {
+                    existingPost.Title = postVM.Post.Title;
+                    existingPost.Author = postVM.Post.Author;
+                    existingPost.Content = postVM.Post.Content;
+                    existingPost.CategoryId = postVM.Post.CategoryId;
+                    existingPost.FeatureImagePath = postVM.Post.FeatureImagePath;
+                }
+                // Update existing
+                await _IPost.UpdatePost(existingPost);
+            }
 
             return RedirectToAction(nameof(Index));
         }
