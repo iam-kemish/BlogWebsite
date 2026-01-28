@@ -23,6 +23,11 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Lockout.AllowedForNewUsers = true;
 
 });
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(60); // default lifespan
+    options.SlidingExpiration = true;                  // refreshes cookie on activity
+});
 
 
 builder.Services.AddScoped<IPost, PostRepo>();

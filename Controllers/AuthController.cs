@@ -46,7 +46,7 @@ namespace BlogWebsite.Controllers
                     //default role is given as Costumer,i.e. General users.
                     _userManager.AddToRoleAsync(user, StaticDetails.Role_Customer).GetAwaiter().GetResult();
                     //we will sign the user in now, the second parameter ispersistant :true, means the user will be logged in even after browser is closed.
-                    _signinManager.SignInAsync(user, isPersistent: false).GetAwaiter().GetResult();
+                    _signinManager.SignInAsync(user, isPersistent: true).GetAwaiter().GetResult();
                     return RedirectToAction("Index", "Home");
 
 
@@ -69,7 +69,8 @@ namespace BlogWebsite.Controllers
                     ModelState.AddModelError("", "Password or email is worng");
                     return View();
                 }
-             var result = await  _signinManager.PasswordSignInAsync(User, loginVM.Password, false, true);
+                var result = await _signinManager.PasswordSignInAsync(User, loginVM.Password, false, true);
+
                 if (!result.Succeeded)
                 {
                     ModelState.AddModelError("", "Email or password is incorrect");
@@ -79,7 +80,12 @@ namespace BlogWebsite.Controllers
             }
             return View(loginVM);
         }
-
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await _signinManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
 
     }
 }
