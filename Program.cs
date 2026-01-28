@@ -62,8 +62,18 @@ using (var scope = app.Services.CreateScope())
 
     if (existingAdminUser == null)
     {
-        await _userManager.CreateAsync(new AppUser { UserName = adminEmail, Email = adminEmail }, adminPassword);
-        await _userManager.AddToRoleAsync(new AppUser { UserName = adminUserName, Email = adminEmail }, roleName);
+        var adminUser = new AppUser()
+        {
+            UserName = adminUserName,
+            Email = adminEmail,
+            EmailConfirmed = true
+
+        };
+        var createUser = await _userManager.CreateAsync(adminUser, adminPassword);
+        if (createUser.Succeeded)
+        {
+            await _userManager.AddToRoleAsync(adminUser, roleName);
+        }
     }
 
 
