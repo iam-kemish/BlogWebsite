@@ -1,4 +1,4 @@
-using BlogWebsite.Database;
+﻿using BlogWebsite.Database;
 using BlogWebsite.Models;
 using BlogWebsite.Repositary.CategoryRepositary;
 using BlogWebsite.Repositary.CommentRepositary;
@@ -8,45 +8,82 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
-    builder.Configuration.GetConnectionString("DefaultConnection")
-    ));
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
-builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
-builder.Services.Configure<IdentityOptions>(options =>
+// Identity setup
+builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {
     options.User.RequireUniqueEmail = true;
     options.Lockout.MaxFailedAccessAttempts = 5;
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2);
     options.Lockout.AllowedForNewUsers = true;
+})
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
 
-});
+// Configure cookie
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(60); // default lifespan
-    options.SlidingExpiration = true;                  // refreshes cookie on activity
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(60); // max for persistent login
+    options.SlidingExpiration = true;
+    options.LoginPath = "/Auth/Login";   // redirect if unauthorized
+    options.LogoutPath = "/Auth/Logout";
 });
 
-
+// Dependency injection
 builder.Services.AddScoped<IPost, PostRepo>();
-builder.Services.AddScoped<ICategory,CategoryRepo>();
+builder.Services.AddScoped<ICategory, CategoryRepo>();
 builder.Services.AddScoped<IComment, CommentClass>();
 
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var _userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
+    var _roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-// Configure the HTTP request pipeline.
+    var adminEmail = builder.Configuration["Admin:Email"];
+    var adminPassword = builder.Configuration["Admin:Password"];
+    var adminUserName = builder.Configuration["Admin:Username"];
+    var roleName = "Admin";
+
+    var existingAdminRole = await _roleManager.FindByNameAsync(roleName);
+
+    if (existingAdminRole == null)
+    {
+        await _roleManager.CreateAsync(new IdentityRole(roleName));
+    }
+
+    var existingAdminUser = await _userManager.FindByEmailAsync(adminEmail);
+
+    if (existingAdminUser == null)
+    {
+        await _userManager.CreateAsync(new AppUser { UserName = adminEmail, Email = adminEmail }, adminPassword);
+        await _userManager.AddToRoleAsync(new AppUser { UserName = adminUserName, Email = adminEmail }, roleName);
+    }
+
+
+}
+
+
+// Middleware
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+
 app.UseRouting();
 
+// ✅ Identity middlewares
+app.UseAuthentication();   // must be before authorization
 app.UseAuthorization();
 
 app.MapStaticAssets();
@@ -55,6 +92,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
-
 
 app.Run();

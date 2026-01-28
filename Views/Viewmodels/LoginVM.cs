@@ -14,5 +14,8 @@ namespace BlogWebsite.Views.Viewmodels
         [MinLength(8)]
         public string Password { get; set; }
 
+        [Display(Name = "Remember me?")]
+        public bool RememberMe { get; set; }
+
     }
 }

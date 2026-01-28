@@ -39,12 +39,12 @@ namespace BlogWebsite.Controllers
                 var result = await _userManager.CreateAsync(user, registerVM.Password);
                 if (result.Succeeded)
                 {
-                    if (!_roleManager.RoleExistsAsync(StaticDetails.Role_Customer).GetAwaiter().GetResult())
+                    if (!_roleManager.RoleExistsAsync("Customer").GetAwaiter().GetResult())
                     {
-                        _roleManager.CreateAsync(new IdentityRole(StaticDetails.Role_Customer)).GetAwaiter().GetResult();
+                        _roleManager.CreateAsync(new IdentityRole("Customer")).GetAwaiter().GetResult();
                     }
                     //default role is given as Costumer,i.e. General users.
-                    _userManager.AddToRoleAsync(user, StaticDetails.Role_Customer).GetAwaiter().GetResult();
+                    _userManager.AddToRoleAsync(user, "Customer").GetAwaiter().GetResult();
                     //we will sign the user in now, the second parameter ispersistant :true, means the user will be logged in even after browser is closed.
                     _signinManager.SignInAsync(user, isPersistent: true).GetAwaiter().GetResult();
                     return RedirectToAction("Index", "Home");
@@ -69,7 +69,7 @@ namespace BlogWebsite.Controllers
                     ModelState.AddModelError("", "Password or email is worng");
                     return View();
                 }
-                var result = await _signinManager.PasswordSignInAsync(User, loginVM.Password, false, true);
+                var result = await _signinManager.PasswordSignInAsync(User, loginVM.Password, loginVM.RememberMe, true);
 
                 if (!result.Succeeded)
                 {
