@@ -15,7 +15,14 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
     ));
 
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.User.RequireUniqueEmail = true;
+    options.Lockout.MaxFailedAccessAttempts = 5;
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2);
+    options.Lockout.AllowedForNewUsers = true;
 
+});
 
 
 builder.Services.AddScoped<IPost, PostRepo>();

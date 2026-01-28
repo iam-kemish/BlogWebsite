@@ -54,6 +54,32 @@ namespace BlogWebsite.Controllers
             }
             return View(registerVM);
         }
-       
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginVM loginVM)
+        {
+            if (ModelState.IsValid)
+            {
+                var User = await _userManager.FindByEmailAsync(loginVM.Email);
+                if (User == null) {
+                    ModelState.AddModelError("", "Password or email is worng");
+                    return View();
+                }
+             var result = await  _signinManager.PasswordSignInAsync(User, loginVM.Password, false, true);
+                if (!result.Succeeded)
+                {
+                    ModelState.AddModelError("", "Email or password is incorrect");
+                    return View();
+                }
+                return RedirectToAction("Index", "Home");
+            }
+            return View(loginVM);
+        }
+
+
     }
 }
