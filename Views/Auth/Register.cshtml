@@ -1,0 +1,55 @@
+﻿@model RegisterVM
+
+
+<div class="container my-5">
+    <div class="row">
+
+        <div class="col-md-10">
+
+            <form asp-action="Register" method="post" asp-asp-controller="Auth"  class="container mt-4">
+                <div class="text-danger" asp-validation-summary="All"></div>
+                <h2 class="mb-4">Register user</h2>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="UserName" class="form-label"></label>
+                    <input asp-for="UserName" class="form-control" rows="5"></input>
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ConfirmPassword" class="form-label"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+               
+                <button type="submit" class="btn btn-primary">
+                   Register
+                </button>
+
+                <a asp-controller="Home" asp-action="Index" class="btn btn-secondary ms-2">
+                    Cancel
+                </a>
+
+            </form>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
