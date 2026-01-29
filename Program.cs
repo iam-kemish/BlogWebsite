@@ -31,8 +31,9 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.Cookie.HttpOnly = true;
     options.ExpireTimeSpan = TimeSpan.FromMinutes(60); // max for persistent login
     options.SlidingExpiration = true;
-    //options.LoginPath = "/Auth/Login";   // redirect if unauthorized
-    //options.LogoutPath = "/Auth/Logout";
+    options.LoginPath = "/Auth/Login";  
+    options.LogoutPath = "/Auth/Logout";
+    options.AccessDeniedPath= "/Auth/AccessDenied";
 });
 
 // Dependency injection

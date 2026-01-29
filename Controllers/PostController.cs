@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
 using BlogWebsite.Views.Viewmodels;
 using BlogWebsite.Repositary.CategoryRepositary;
+using Microsoft.AspNetCore.Authorization;
+
 
 public class PostController : Controller
 {
@@ -28,7 +30,7 @@ public class PostController : Controller
         };
         return View(postVM);
     }
-
+    [Authorize(Roles ="Admin")]
     public async Task<IActionResult> CreateUpdate(int? id)
     {
 
@@ -58,6 +60,7 @@ public class PostController : Controller
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> CreateUpdate(PostVM postVM, int? id)
     {
         if (ModelState.IsValid)
@@ -141,6 +144,7 @@ public class PostController : Controller
 
         return View(postVM);
     }
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Delete(int? id)
     {
         if (id == null || id == 0)
@@ -157,6 +161,7 @@ public class PostController : Controller
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Delete(int id)
     {
         var PostToDelete = await _IPost.GetPost(u => u.Id == id);

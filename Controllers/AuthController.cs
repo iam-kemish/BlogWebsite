@@ -86,6 +86,10 @@ namespace BlogWebsite.Controllers
             await _signinManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+        public IActionResult AccessDenied()
+        {
+            return  View();
+        }
 
     }
 }
