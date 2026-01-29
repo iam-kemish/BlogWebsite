@@ -5,11 +5,13 @@ using BlogWebsite.Repositary.CategoryRepositary;
 using BlogWebsite.Repositary.CommentRepositary;
 using BlogWebsite.Repositary.PostRepositary;
 using BlogWebsite.Views.Viewmodels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 
 namespace BlogWebsite.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
 
@@ -23,7 +25,7 @@ namespace BlogWebsite.Controllers
             _ICategory = category;
             _IComment = comment;
         }
-
+        [AllowAnonymous]
         public async Task<IActionResult> Index(int? categoryId, int PageNumber=1)
         {
 
@@ -41,6 +43,8 @@ namespace BlogWebsite.Controllers
             };
             return View(homeVM);
         }
+
+        [AllowAnonymous]
        public async Task<IActionResult> Details(int PostId)
         {
             var newpost = await _IPost.GetPost(u => u.Id == PostId);
@@ -59,7 +63,7 @@ namespace BlogWebsite.Controllers
             return View(postDetails);
 
         }
-
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddComment(Comment comment)

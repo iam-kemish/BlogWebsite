@@ -31,51 +31,21 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.Cookie.HttpOnly = true;
     options.ExpireTimeSpan = TimeSpan.FromMinutes(60); // max for persistent login
     options.SlidingExpiration = true;
-    options.LoginPath = "/Auth/Login";   // redirect if unauthorized
-    options.LogoutPath = "/Auth/Logout";
+    //options.LoginPath = "/Auth/Login";   // redirect if unauthorized
+    //options.LogoutPath = "/Auth/Logout";
 });
 
 // Dependency injection
 builder.Services.AddScoped<IPost, PostRepo>();
 builder.Services.AddScoped<ICategory, CategoryRepo>();
 builder.Services.AddScoped<IComment, CommentClass>();
+builder.Services.AddScoped<IdentitySeeder>();
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
-    var _userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
-    var _roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-    var adminEmail = builder.Configuration["Admin:Email"];
-    var adminPassword = builder.Configuration["Admin:Password"];
-    var adminUserName = builder.Configuration["Admin:Username"];
-    var roleName = "Admin";
-
-    var existingAdminRole = await _roleManager.FindByNameAsync(roleName);
-
-    if (existingAdminRole == null)
-    {
-        await _roleManager.CreateAsync(new IdentityRole(roleName));
-    }
-
-    var existingAdminUser = await _userManager.FindByEmailAsync(adminEmail);
-
-    if (existingAdminUser == null)
-    {
-        var adminUser = new AppUser()
-        {
-            UserName = adminUserName,
-            Email = adminEmail,
-            EmailConfirmed = true
-
-        };
-        var createUser = await _userManager.CreateAsync(adminUser, adminPassword);
-        if (createUser.Succeeded)
-        {
-            await _userManager.AddToRoleAsync(adminUser, roleName);
-        }
-    }
-
+  var seeder = scope.ServiceProvider.GetRequiredService<IdentitySeeder>();
+    await seeder.SeedAsync(scope.ServiceProvider);
 
 }
 
