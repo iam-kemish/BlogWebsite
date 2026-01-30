@@ -3,6 +3,7 @@ using BlogWebsite.Models;
 using BlogWebsite.Repositary.CategoryRepositary;
 using BlogWebsite.Repositary.CommentRepositary;
 using BlogWebsite.Repositary.PostRepositary;
+using BlogWebsite.Services.PostService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -41,6 +42,7 @@ builder.Services.AddScoped<IPost, PostRepo>();
 builder.Services.AddScoped<ICategory, CategoryRepo>();
 builder.Services.AddScoped<IComment, CommentClass>();
 builder.Services.AddScoped<IdentitySeeder>();
+builder.Services.AddScoped<IPostService, PostService>();
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
