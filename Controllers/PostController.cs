@@ -38,15 +38,11 @@ public class PostController : Controller
     {
 
         var categoryList = await _ICategory.GetAllCategories();
-        var categorySelect = categoryList.Select(c => new SelectListItem
-        {
-            Text = c.Name,
-            Value = c.Id.ToString()
-        });
+
         PostVM postVM = new PostVM
         {
             Post = new Post(),
-            Categories = categorySelect
+            Categories = await _IPostSerice.CategoryList()
         };
         if (id == null || id == 0)
         {
@@ -69,13 +65,7 @@ public class PostController : Controller
         if (!ModelState.IsValid)
         {
             // If model invalid, reload categories
-            var categoryList = await _ICategory.GetAllCategories();
-            postVM.Categories = categoryList.Select(c => new SelectListItem
-            {
-                Text = c.Name,
-                Value = c.Id.ToString()
-            });
-            return View(postVM);
+            await _IPostSerice.CategoryList();
 
         }
        await _IPostSerice.CreateOrUpdate(postVM, id);

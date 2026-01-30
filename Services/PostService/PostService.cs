@@ -3,6 +3,7 @@ using BlogWebsite.Repositary.CategoryRepositary;
 using BlogWebsite.Repositary.PostRepositary;
 using BlogWebsite.Views.Viewmodels;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BlogWebsite.Services.PostService
 {
@@ -18,6 +19,20 @@ namespace BlogWebsite.Services.PostService
             _IPost = post;
             _ICategory = category;
         }
+
+        public async Task<IEnumerable<SelectListItem>> CategoryList()
+        {
+            var categoryList = await _ICategory.GetAllCategories();
+            return categoryList.Select(c => new SelectListItem
+            {
+                Text = c.Name,
+                Value = c.Id.ToString()
+            });
+
+        }
+
+       
+
         public async Task CreateOrUpdate(PostVM postVM, int? id)
         {
             string wwwRootPath = _WebHost.WebRootPath;
@@ -86,10 +101,6 @@ namespace BlogWebsite.Services.PostService
 
 
         }
-
-
-
-
     }
 }
 
