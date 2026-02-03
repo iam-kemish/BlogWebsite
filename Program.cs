@@ -6,7 +6,6 @@ using BlogWebsite.Repositary.PostRepositary;
 using BlogWebsite.Services.PostService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services
@@ -14,7 +13,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
-
 // Identity setup
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {
@@ -38,11 +36,12 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 // Dependency injection
+builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddScoped<IPost, PostRepo>();
 builder.Services.AddScoped<ICategory, CategoryRepo>();
 builder.Services.AddScoped<IComment, CommentClass>();
 builder.Services.AddScoped<IdentitySeeder>();
-builder.Services.AddScoped<IPostService, PostService>();
+
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())

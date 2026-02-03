@@ -1,10 +1,7 @@
-﻿using BlogWebsite.Models;
-using BlogWebsite.Repositary.CategoryRepositary;
+﻿using BlogWebsite.Repositary.CategoryRepositary;
 using BlogWebsite.Repositary.PostRepositary;
 using BlogWebsite.Views.Viewmodels;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
 namespace BlogWebsite.Services.PostService
 {
     public class PostService : IPostService
@@ -30,8 +27,6 @@ namespace BlogWebsite.Services.PostService
             });
 
         }
-
-       
 
         public async Task CreateOrUpdate(PostVM postVM, int? id)
         {
@@ -77,7 +72,11 @@ namespace BlogWebsite.Services.PostService
 
             }
             // If no new image uploaded → keep the existing FeatureImagePath (do nothing)
+            else if(existingPost!= null)
+            {
+                postVM.Post.FeatureImagePath = existingPost.FeatureImagePath;
 
+            }
             if (id == 0 || id == null)
             {
                 // Create new
@@ -96,10 +95,7 @@ namespace BlogWebsite.Services.PostService
                 }
                 // Update existing
                 await _IPost.UpdatePost(existingPost);
-
             }
-
-
         }
     }
 }
